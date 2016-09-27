@@ -23,15 +23,16 @@ namespace MUD
 			numOfRooms++;
 		}
 
-		public Room getRoom(int roomID)
+		public Room getRoomById(int roomID)
 		{
-			for (int i = numOfRooms; i >= 0; i--)
+			for (int i = numOfRooms - 1; i >= 0; i--)
 			{
 				if (Rooms[i].id.Equals(roomID))
 				{
 					return Rooms[i];
 				}
 			}
+			Console.WriteLine("DEBUG: Did not find room with ID " + roomID);
 			return null;
 		}
 	}

@@ -13,6 +13,12 @@ namespace MUD
 			Map world = new Map();
 			world.addRoom(1);
 			world.addRoom(2);
+
+			world.getRoomById(1).addEdge("north", new Edge(world.getRoomById(2)));
+			world.getRoomById(2).addEdge("south", new Edge(world.getRoomById(1)));
+
+
+
 			string input = Console.ReadLine().ToLower();
 			while (!(input.Equals("exit")))
 			{
