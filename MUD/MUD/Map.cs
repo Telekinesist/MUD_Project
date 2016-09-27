@@ -25,7 +25,7 @@ namespace MUD
 
 		public Room getRoomById(int roomID)
 		{
-			for (int i = numOfRooms - 1; i >= 0; i--)
+			for (int i = numOfRooms; i >= 0; i--)
 			{
 				if (Rooms[i].id.Equals(roomID))
 				{

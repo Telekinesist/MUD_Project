@@ -16,9 +16,9 @@ namespace MUD
 		public int id;
 
 
-		public Room(int id)
+		public Room(int roomId)
 		{
-			this.id = id;
+			id = roomId;
 		}
 
 		public void addEdge(string direction, Edge linkEdge)
