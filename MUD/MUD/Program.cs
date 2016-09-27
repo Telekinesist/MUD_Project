@@ -10,7 +10,18 @@ namespace MUD
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Moo");
+			Map world = new Map();
+			world.addRoom(1);
+			world.addRoom(2);
+			string input = Console.ReadLine().ToLower();
+			while (!(input.Equals("exit")))
+			{
+				if (input.Contains("tp"))
+				{
+					Player.inRoom = int.Parse(input.Substring(2));
+				}
+				input = Console.ReadLine().ToLower();
+			}
 		}
 	}
 }
