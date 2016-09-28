@@ -28,6 +28,8 @@ namespace MUD
 				}
 				input = Console.ReadLine().ToLower();
 			}
+
+			Console.WriteLine("This is for testing pull requests");
 		}
 	}
 }
