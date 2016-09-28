@@ -10,22 +10,21 @@ namespace MUD
 	{
 		static void Main(string[] args)
 		{
-			Map world = new Map();
-			world.addRoom(1);
-			world.addRoom(2);
 
-			world.getRoomById(1).addEdge("north", new Edge(world.getRoomById(2)));
-			world.getRoomById(2).addEdge("south", new Edge(world.getRoomById(1)));
+			//Creates test world with 2 rooms
+			//Map world = new Map();
+			Data.world.addRoom(1);
+			Data.world.addRoom(2);
+
+			Data.world.getRoomById(1).addEdge("north", new Edge(Data.world.getRoomById(2)));
+			Data.world.getRoomById(2).addEdge("south", new Edge(Data.world.getRoomById(1)));
 
             //nu er jeg med
 
 			string input = Console.ReadLine().ToLower();
 			while (!(input.Equals("exit")))
 			{
-				if (input.Contains("tp"))
-				{
-					Player.inRoom = int.Parse(input.Substring(2));
-				}
+				Interface.playerCommand(input);
 				input = Console.ReadLine().ToLower();
 			}
 		}
