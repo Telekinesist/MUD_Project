@@ -21,7 +21,7 @@ namespace MUD
 			id = roomId;
 		}
 
-		public void AddEdge(string direction, Edge linkEdge)
+		public void addEdge(string direction, Edge linkEdge)
 		{
 			switch (direction.Substring(0, 1).ToLower())
 			{
