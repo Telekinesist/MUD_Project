@@ -17,7 +17,7 @@ namespace MUD
 			world.getRoomById(1).addEdge("north", new Edge(world.getRoomById(2)));
 			world.getRoomById(2).addEdge("south", new Edge(world.getRoomById(1)));
 
-
+            //nu er jeg med
 
 			string input = Console.ReadLine().ToLower();
 			while (!(input.Equals("exit")))
