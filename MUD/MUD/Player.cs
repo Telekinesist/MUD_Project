@@ -10,5 +10,7 @@ namespace MUD
 	{
 		public static int inRoom;
 		public static int HP = 100;
+        public static int ST = 100;
+
 	}
 }
