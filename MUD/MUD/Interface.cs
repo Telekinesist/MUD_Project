@@ -11,7 +11,12 @@ namespace MUD
 		//Handles user input
 		public static void playerCommand(string input)
 		{
-
+			if (input.Substring(0, 2).Equals("tp"))
+			{
+				Player.inRoom = int.Parse(input.Substring(3));
+			}
 		}
+		
+
 	}
 }
