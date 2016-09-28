@@ -16,7 +16,5 @@ namespace MUD
 				Player.inRoom = int.Parse(input.Substring(3));
 			}
 		}
-		
-
 	}
 }
