@@ -11,10 +11,18 @@ namespace MUD
 		//Handles user input
 		public static void playerCommand(string input)
 		{
-			if (input.Substring(0, 2).Equals("tp"))
+			if (input.Length > 0)
 			{
-				Player.inRoom = int.Parse(input.Substring(3));
+				if (input.Substring(0, 2).Equals("tp"))
+				{
+					Player.room = int.Parse(input.Substring(3));
+				}
+				else if (input.Substring(0, 2).Equals("go"))
+				{
+					Player.move(input.Substring(3,1));
+				}
 			}
+			
 		}
 	}
 }
