@@ -28,8 +28,8 @@ namespace MUD
 			world.addRoom(1, DiffierentChestes[0], DiffierentMonsters[0]);
             world.addRoom(2, DiffierentChestes[1], DiffierentMonsters[0]);
 
-            Console.WriteLine("you found a chest and pick up a potion with " + world.getRoomById(1).RoomChest.a + "hp" + "but wait, there is something else in the room you entered, it is" + world.getRoomById(1).RoomMonster.b + " and it level is " + world.getRoomById(1).RoomMonster.a);
-            Console.WriteLine("you entered a new room with " + world.getRoomById(2).RoomChest.b + " you died, GAME OVER!!!!");
+            Console.WriteLine("you found a chest and pick up a potion with " + world.getRoomById(1).RoomChest.a_hp + "hp" + "but wait, there is something else in the room you entered, it is" + world.getRoomById(1).RoomMonster.b_WhatType + " and it level is " + world.getRoomById(1).RoomMonster.a_level);
+            Console.WriteLine("you entered a new room with " + world.getRoomById(2).RoomChest.b_weapon + " you died, GAME OVER!!!!");
             Console.ReadLine();
 
 			world.getRoomById(1).addEdge("north", new Edge(world.getRoomById(2)));
