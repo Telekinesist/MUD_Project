@@ -8,13 +8,13 @@ namespace MUD
 {
     public class Monster
     {
-        public int a_level;
-        public string b_WhatType;
+        public int a;
+        public string b;
         public Monster(int Level, string WhatTypeMonster)
 
         {
-            a_level= Level;
-            b_WhatType = WhatTypeMonster;
+            a = Level;
+            b = WhatTypeMonster;
         }
     }
 }
