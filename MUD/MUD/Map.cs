@@ -17,9 +17,9 @@ namespace MUD
 			//Rooms = new List<Room>();
 		}
 
-		public void addRoom(int roomId)
-		{
-			Room room = new Room(roomId);
+		public void addRoom(int roomId, Chest b = null, Monster c = null)
+        {
+			Room room = new Room(roomId, b, c);
 			//Rooms.Add(room);
 			Rooms.Add(roomId, room);
 			numOfRooms++;
