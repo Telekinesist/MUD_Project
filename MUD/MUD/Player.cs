@@ -10,6 +10,28 @@ namespace MUD
 	{
 		public static int room = 1; //Spawn
 		public static int HP = 100;
+
+		public static string armor = "shirt";
+		public static float damageResistance = 0;
+		public static int damageReduction = 0;
+
+		public static string weapon = "fists";
+		public static float weildability = 1;
+		public static int damage = 2;
+		public static float inconsitency = 0;
+		
+
+
+		public static void getStats()
+		{
+			C.t("\t    -INVENTORY-");
+			C.l("- Room", room.ToString());
+			C.l("- Health points", HP.ToString());
+			C.l("- Armor", armor);
+			C.l("- Defence", damageResistance.ToString() + "% + " + damageReduction.ToString());
+			C.l("- Weapon", weapon);
+			C.l("- Damage", damage + " and " + weildability + " wieldability ");
+		}
 		
 		public static void move(string direction)
 		{
