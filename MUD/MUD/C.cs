@@ -16,5 +16,22 @@ namespace MUD
 		{
 			Console.WriteLine("DEBUG: " + toConsole);
 		}
+		public static void l(string list, string stat = "")
+		{
+			Console.Write("    " + list);
+			if (list.Length < 6)
+			{
+				Console.WriteLine("\t\t\t: " + stat);
+			}
+			else if (list.Length < 15)
+			{
+				Console.WriteLine("\t\t: " + stat);
+			}
+			else
+			{
+				Console.WriteLine("\t: " + stat);
+			}
+			
+		}
 	}
 }

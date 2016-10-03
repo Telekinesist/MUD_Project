@@ -21,6 +21,10 @@ namespace MUD
 				{
 					Player.move(input.Substring(3,1));
 				}
+				else if (input.Contains("inventory"))
+				{
+					Player.getStats();
+				}
 			}
 			
 		}
