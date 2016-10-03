@@ -83,6 +83,53 @@ namespace MUD
 					}
 					break;
 
+
+				case 'u':
+					if (!(Data.getRoom(room).north == null))
+					{
+						C.t("You went north");
+						room = Data.getRoom(room).north.link.id;
+					}
+					else
+					{
+						C.t("You can't go that way");
+					}
+					break;
+
+				case 'd':
+					if (!(Data.getRoom(room).south == null))
+					{
+						C.t("You went south");
+						room = Data.getRoom(room).south.link.id;
+					}
+					else
+					{
+						C.t("You can't go that way");
+					}
+					break;
+				case 'r':
+					if (!(Data.getRoom(room).east == null))
+					{
+						C.t("You went east");
+						room = Data.getRoom(room).east.link.id;
+					}
+					else
+					{
+						C.t("You can't go that way");
+					}
+					break;
+				case 'l':
+					if (!(Data.getRoom(room).west == null))
+					{
+						C.t("You went west");
+						room = Data.getRoom(room).west.link.id;
+					}
+					else
+					{
+						C.t("You can't go that way");
+					}
+					break;
+
 			}
 		}
 	}

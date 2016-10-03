@@ -8,6 +8,7 @@ namespace MUD
 {
 	static class Interface
 	{
+		public static List<string> directions = new List<string>();
 		//Handles user input
 		public static void playerCommand(string input)
 		{
@@ -17,13 +18,19 @@ namespace MUD
 				{
 					Player.room = int.Parse(input.Substring(3));
 				}
-				else if (input.Substring(0, 2).Equals("go"))
-				{
-					Player.move(input.Substring(3,1));
-				}
-				else if (input.Contains("inventory"))
+				else if (Data.showInv.Any(input.Contains))
 				{
 					Player.getStats();
+				}
+				else if (Data.move.Any(input.Contains))
+				{
+					foreach (string direct in directions)
+					{
+						if (input.Contains(" " + direct))
+						{
+							Player.move(direct);
+						}
+					}
 				}
 			}
 			
