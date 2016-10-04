@@ -12,7 +12,7 @@ namespace MUD
 		//Handles user input
 		public static void playerCommand(string input)
 		{
-			if (input.Length > 0)
+			if (input.Length > 1)
 			{
 				if (input.Substring(0, 2).Equals("tp"))
 				{
@@ -29,6 +29,7 @@ namespace MUD
 						if (input.Contains(" " + direct))
 						{
 							Player.move(direct);
+							break;
 						}
 					}
 				}
