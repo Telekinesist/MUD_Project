@@ -18,7 +18,7 @@ namespace MUD
 		public string descrp;
 
 
-		public Room(int roomId, string description)
+		public Room(int roomId, string description = "")
 		{
 			id = roomId;
 			descrp = description;
