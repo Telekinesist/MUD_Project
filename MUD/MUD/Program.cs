@@ -26,6 +26,7 @@ namespace MUD
 			string input = Console.ReadLine().ToLower();
 			while (!(input.Equals("exit")))
 			{
+				Console.WriteLine("DUDE");
 				Interface.playerCommand(input);
 				input = Console.ReadLine().ToLower();
 			}
