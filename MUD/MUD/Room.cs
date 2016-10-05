@@ -8,7 +8,9 @@ namespace MUD
 {
 	public class Room
 	{
-		public Edge north;
+        public Chest RoomChest;
+        public Monster RoomMonster;
+        public Edge north;
 		public Edge south;
 		public Edge east;
 		public Edge west;
@@ -17,10 +19,11 @@ namespace MUD
 
 		public string descrp;
 
-
-		public Room(int roomId, string description = "")
+		public Room(int roomId, Chest b = null, Monster c = null, string description = "")
 		{
 			id = roomId;
+            RoomChest = b;
+            RoomMonster = c;
 			descrp = description;
 		}
 
