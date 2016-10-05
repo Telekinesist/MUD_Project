@@ -10,16 +10,17 @@ namespace MUD
 	{
 		static void Main(string[] args)
 		{
+            DifferentsWeapons r = new DifferentsWeapons();
             List<Chest> DiffierentChestes;
             DiffierentChestes = new List<Chest>();
-            DiffierentChestes.Add(new Chest(50, "weapon"));
-            DiffierentChestes.Add(new Chest(0, "poison"));
-            DiffierentChestes.Add(new Chest(700, ""));
+            DiffierentChestes.Add(new Chest("50Hp", r.GetRandomWeapon()));
+            DiffierentChestes.Add(new Chest(null, r.GetRandomWeapon()));
+            DiffierentChestes.Add(new Chest("700Hp", null));
 
 
             List<Monster> DiffierentMonsters;
             DiffierentMonsters = new List<Monster>();
-            DiffierentMonsters.Add(new Monster(1, "Rat"));
+            DiffierentMonsters.Add(new Monster(1, "Rat","10Hp","Attack 2"));
 
             
 
@@ -33,7 +34,8 @@ namespace MUD
 			Data.world.getRoomById(2).addEdge("south", new Edge(Data.world.getRoomById(1)));*/
 			Data.getRoom(1).addEdge("north", new Edge(Data.getRoom(2)));
 			Data.getRoom(2).addEdge("south", new Edge(Data.getRoom(1)));
-            
+            Data.getRoom(3).addEdge("west", new Edge(Data.getRoom(2)));
+           
 
 			//nu er jeg med
 

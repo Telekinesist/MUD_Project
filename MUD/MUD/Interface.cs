@@ -19,7 +19,7 @@ namespace MUD
 				}
 				else if (input.Substring(0, 2).Equals("go"))
 				{
-					Player.move(input.Substring(3,1));
+					Player.move(input.Substring(3));
 				}
 			}
 			
