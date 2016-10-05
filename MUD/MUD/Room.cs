@@ -17,13 +17,15 @@ namespace MUD
 
 		public int id;
 
+		public string descrp;
 
-		public Room(int roomId, Chest b, Monster c)
+		public Room(int roomId, Chest b = null, Monster c = null, string description = "")
 		{
 			id = roomId;
             RoomChest = b;
             RoomMonster = c;
-        }
+			descrp = description;
+		}
 
 		public void addEdge(string direction, Edge linkEdge)
 		{

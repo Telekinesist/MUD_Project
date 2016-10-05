@@ -10,6 +10,7 @@ namespace MUD
 	{
 		static void Main(string[] args)
 		{
+			Data.addCommands();
             DifferentsWeapons r = new DifferentsWeapons();
             List<Chest> DiffierentChestes;
             DiffierentChestes = new List<Chest>();
@@ -24,20 +25,15 @@ namespace MUD
 
             
 
-            //Creates test world with 2 rooms
-            //Map world = new Map();
+            //Creates test world
             Data.world.addRoom(1);
 			Data.world.addRoom(2);
             Data.world.addRoom(3, DiffierentChestes[0]);
-
-			/*Data.world.getRoomById(1).addEdge("north", new Edge(Data.world.getRoomById(2)));
-			Data.world.getRoomById(2).addEdge("south", new Edge(Data.world.getRoomById(1)));*/
 			Data.getRoom(1).addEdge("north", new Edge(Data.getRoom(2)));
 			Data.getRoom(2).addEdge("south", new Edge(Data.getRoom(1)));
             Data.getRoom(3).addEdge("west", new Edge(Data.getRoom(2)));
-           
+			Data.getRoom(1).addEdge("east", new Edge(Data.getRoom(3)));
 
-			//nu er jeg med
 
 			string input = Console.ReadLine().ToLower();
 			while (!(input.Equals("exit")))
