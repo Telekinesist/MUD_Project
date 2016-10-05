@@ -18,6 +18,7 @@ namespace MUD
             weapons.Add(w2);
         }
 
+
         public Weapon GetRandomWeapon()
         {
             Random rand = new Random();
