@@ -44,10 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="C.cs" />
+    <Compile Include="Chest.cs" />
     <Compile Include="Data.cs" />
+    <Compile Include="DifferentsWeapons.cs" />
     <Compile Include="Edge.cs" />
     <Compile Include="Interface.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="Monster.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,21 +8,22 @@ namespace MUD
 {
 	public class Room
 	{
-		public Edge north;
+        public Chest RoomChest;
+        public Monster RoomMonster;
+        public Edge north;
 		public Edge south;
 		public Edge east;
 		public Edge west;
 
 		public int id;
 
-		public string descrp;
 
-
-		public Room(int roomId, string description = "")
+		public Room(int roomId, Chest b, Monster c)
 		{
 			id = roomId;
-			descrp = description;
-		}
+            RoomChest = b;
+            RoomMonster = c;
+        }
 
 		public void addEdge(string direction, Edge linkEdge)
 		{
