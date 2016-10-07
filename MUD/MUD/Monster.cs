@@ -10,9 +10,9 @@ namespace MUD
     {
         public int a_level;
         public string b_WhatType;
-        public string c_MostersHP;
-        public string d_MostersAtt;
-        public Monster(int Level, string WhatTypeMonster,string MostersHp, string MonstersAtt)
+        public int c_MostersHP;
+        public int d_MostersAtt;
+        public Monster(int Level, string WhatTypeMonster,int MostersHp, int MonstersAtt)
 
         {
             a_level = Level;

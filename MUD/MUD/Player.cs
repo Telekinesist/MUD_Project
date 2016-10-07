@@ -18,7 +18,7 @@ namespace MUD
 		public static string weapon = "fists";
 		public static float weildability = 1;
 		public static int damage = 2;
-		public static float inconsitency = 0;
+		public static float inconsitency = 0.2f;
 		
 
 
