@@ -32,9 +32,9 @@ namespace MUD
 
     public class Weapon
     {
-        int damage;
-        string name;
-        string description;
+        public int damage;
+        public string name;
+        public string description;
 
         public Weapon(int damage, string name, string description)
         {
@@ -43,5 +43,15 @@ namespace MUD
             this.description = description;
 
         }
-    }
+
+		public override string ToString()
+		{
+			string s = name + "\n";
+		   s += description + "\n";
+			s += damage + "\n";
+			return s;
+		}
+
+
+	}
 }

@@ -33,5 +33,9 @@ namespace MUD
 			}
 			
 		}
+		public static void b(string say)
+		{
+			Console.WriteLine("\t>>>" + say + "<<<");
+		}
 	}
 }

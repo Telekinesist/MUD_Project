@@ -8,12 +8,13 @@ namespace MUD
 {
     public class Chest
     {
-       public string a_Hp;
-       public Weapon b_Weapon;
-       public Chest(string Hp_Exp, Weapon weapon)
+		public int Hp;
+		public Weapon weapon;
+		public bool unopened = true;
+		public Chest(int Hp_Exp, Weapon chestweapon)
         {
-            a_Hp = Hp_Exp;
-            b_Weapon = weapon;
+            Hp = Hp_Exp;
+            weapon = chestweapon;
         }
     }
 }
