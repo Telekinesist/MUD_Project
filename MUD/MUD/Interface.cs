@@ -36,9 +36,9 @@ namespace MUD
 				}
 				if (haveChest && input.Equals("open chest"))
 				{
-					Narrator.descripeChestContent(Data.getRoom(Player.room).RoomChest);
-					Player.HP += Data.getRoom(Player.room).RoomChest.Hp;
-					Data.getRoom(Player.room).RoomChest.unopened = false;
+					Narrator.descripeChestContent(Data.room().RoomChest);
+					Player.HP += Data.room().RoomChest.Hp;
+					Data.room().RoomChest.unopened = false;
 				}
 			}
 		}
@@ -164,7 +164,7 @@ namespace MUD
 				C.b("You where VICTORIOUS");
 				C.b("You gained a zillion XP");
 				C.t("(Exept XP is not implemented)");
-				Data.getRoom(Player.room).RoomMonster = null;
+				Data.room().RoomMonster = null;
 			}
 			//If player dies
 			else if (Player.HP <= 0)
@@ -179,6 +179,7 @@ namespace MUD
 			{
 				C.d("Dafug? Are you hacking?!?");
 			}
+			Narrator.enterRoom(Data.room());
 		}
 	}
 }
