@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	/**
+	 * Contains all data and other information that have to be listed somewhere
+	 */
 	static class Data
 	{
 		public static Map world = new Map();

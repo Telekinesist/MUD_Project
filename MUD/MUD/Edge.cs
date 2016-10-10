@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	/**
+	 * Edge only contans a destination and a price. Price is currently not used
+	 */
 	public class Edge
 	{
 		public Room link;

@@ -6,8 +6,12 @@ using System.Threading;
 
 namespace MUD
 {
+	/**
+	 * Contans the world
+	 */
 	public class Map
 	{
+		//A dictionary is used for fast access to the rooms
 		public Dictionary<int, Room> Rooms = new Dictionary<int, Room>();
 		int numOfRooms = 0;
 

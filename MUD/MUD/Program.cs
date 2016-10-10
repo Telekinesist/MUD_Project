@@ -11,13 +11,15 @@ namespace MUD
 		static string input = "";
 		static void Main(string[] args)
 		{
+			//Ads data
 			Data.addCommands();
 			Data.addData();
 			Data.createWorld();
+
+			//While loop narrates the story, takes player input, and handles it
 			while (!(input.Equals("exit")))
 			{
-				Narrator.enterRoom(Data.getRoom(Player.room));
-				
+				Narrator.enterRoom(Data.room());
 				input = Console.ReadLine().ToLower();
 				Interface.playerCommand(input);
 			}

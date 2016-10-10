@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	/**
+	* Interface class handles the players input
+	*/
 	static class Interface
 	{
 		public static List<string> directions = new List<string>();
