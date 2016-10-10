@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	/**
+	* The Room object is a node in the graph that makes up the world
+	*/
 	public class Room
-	{
-		/**
-		 * The room object is a node in the graph that makes up the world
-		 */
-		
+	{		
         public Chest RoomChest;
         public Monster RoomMonster;
         public Edge north;
