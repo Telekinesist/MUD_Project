@@ -89,7 +89,7 @@ namespace MUD
 
 				C.b(enemy.b_WhatType.ToUpper() + "'s HP: " + enemy.c_MostersHP);
 				input = Console.ReadLine().ToLower();
-				if (input.Contains("attack"))
+				if (Data.attack.Any(input.Contains))
 				{
 					if (r.NextDouble() < Player.weildability)
 					{
@@ -99,7 +99,7 @@ namespace MUD
 						enemy.c_MostersHP -= int.Parse(Math.Round(damage).ToString());
 					}
 				}
-				else if (input.Contains("dodge"))
+				else if (Data.dodge.Any(input.Contains))
 				{
 					isDoding = true;
 				}
@@ -107,7 +107,19 @@ namespace MUD
 				{
 					Player.getStats();
 					//Jumps to the start: at the top of the while loop
+					//It could be done otherwise, but this works well, and the code is easy to change this way
 					goto start;
+				}
+				else if (Data.think.Any(input.Contains))
+				{
+					C.t("You think about who you are. Why you are here. What comes next");
+					C.t("The " + enemy.b_WhatType + " attacks while your guard is down");
+
+				}
+				else if (input.Length > 1)
+				{
+					C.b("You do NOTHING");
+					C.b("The " + enemy.b_WhatType.ToUpper() + " is still mad as hell");
 				}
 				else
 				{
