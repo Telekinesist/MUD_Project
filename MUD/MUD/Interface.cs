@@ -34,6 +34,27 @@ namespace MUD
 						}
 					}
 				}
+				else if (input.Contains("save"))
+				{
+					if (accept("\n\n\nAre you SURE you want to save? This will override previous saved data.\nYes/No", "Game saved", "Save not commenced"))
+					{
+						Save.save();
+					}
+				}
+				else if (input.Equals("reset"))
+				{
+					if (accept("\n\n\nAre you SURE you want to reset?\nYes/No", "All data reset to their default value", "Reset not commenced"))
+					{
+						Save.setValues(Save.load(1));
+					}
+				}
+				else if (input.Equals("load"))
+				{
+					if (accept("\n\n\nAre you SURE you want to load? All progress will be lost\nYes/No", "Loaded save data", "Load not commenced"))
+					{
+						Save.setValues(Save.load(0));
+					}
+				}
 				if (haveChest && input.Equals("open chest"))
 				{
 					Narrator.descripeChestContent(Data.getRoom(Player.room).RoomChest);
@@ -179,6 +200,7 @@ namespace MUD
 			{
 				C.d("Dafug? Are you hacking?!?");
 			}
+			Narrator.enterRoom(Data.room());
 		}
 	}
 }
