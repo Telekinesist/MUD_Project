@@ -29,6 +29,9 @@ namespace MUD
 		//Command lists
 		public static List<string> showInv = new List<string>();
 		public static List<string> move = new List<string>();
+		public static List<string> attack = new List<string>();
+		public static List<string> dodge = new List<string>();
+		public static List<string> think = new List<string>();
 
 		public static void addCommands()
 		{
@@ -40,6 +43,20 @@ namespace MUD
 			move.Add("move");
 			move.Add("travel");
 			move.Add("traverse");
+
+			attack.Add("attack");
+			attack.Add("fight");
+			attack.Add("hit");
+			attack.Add("kill");
+			attack.Add("slay");
+
+			dodge.Add("dodge");
+			dodge.Add("defend");
+			dodge.Add("shield");
+
+			think.Add("think");
+			think.Add("meditate");
+			
 
 			Interface.directions.Add("north");
 			Interface.directions.Add("ssouth");

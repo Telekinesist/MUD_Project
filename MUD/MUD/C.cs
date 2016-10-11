@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	/**
+	* A faster way to write to the console
+	*/
 	static class C
-	{
-		/**
-		 * A faster way to write to the console
-		 */
-		
+	{		
 		//Write a string to the console
 		public static void t(string say)
 		{

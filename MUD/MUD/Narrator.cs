@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	/**
+	* Narrator class tells the story
+	*/
 	class Narrator
-	{
-		/**
-		 * Narrator class tells the story
-		 */
-		
+	{	
 		//Runs before player gives input. Descripes the room. Starts battle if room contains monster
 		public static void enterRoom(Room room)
 		{
