@@ -11,6 +11,7 @@ namespace MUD
 		static string input = "";
 		static void Main(string[] args)
 		{
+			Save.printSave(Save.load());
 			Data.addCommands();
             DifferentsWeapons r = new DifferentsWeapons();
             List<Chest> DiffierentChestes;
