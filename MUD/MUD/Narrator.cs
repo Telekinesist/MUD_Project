@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	/**
+	* Narrator class tells the story
+	*/
 	class Narrator
-	{
+	{	
+		//Runs before player gives input. Descripes the room. Starts battle if room contains monster
 		public static void enterRoom(Room room)
 		{
 			C.t(room.descrp);
@@ -29,9 +33,9 @@ namespace MUD
 					C.t("Here is a chest you already opened");
 				}
 			}
-			
 		}
 
+		//List the content of chests
 		public static void descripeChestContent(Chest chest)
 		{
 			C.t("You opened the chest. You found:");

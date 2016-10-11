@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	/**
+	 * Player class contains information about the player
+	 * Also contains methods direcly invorlving the player
+	 */
 	static class Player
 	{
 		public static int room = 1; //Spawn
