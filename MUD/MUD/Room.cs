@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	/**
+	* The Room object is a node in the graph that makes up the world
+	*/
 	public class Room
-	{
+	{		
         public Chest RoomChest;
         public Monster RoomMonster;
         public Edge north;
@@ -17,14 +20,17 @@ namespace MUD
 
 		public int id;
 
+		public string descrp;
 
-		public Room(int roomId, Chest b, Monster c)
+		public Room(int roomId, Chest b = null, Monster c = null, string description = "")
 		{
 			id = roomId;
             RoomChest = b;
             RoomMonster = c;
-        }
+			descrp = description;
+		}
 
+		//Adds an edge for the directions north, south, east or west.
 		public void addEdge(string direction, Edge linkEdge)
 		{
 			switch (direction.Substring(0, 1).ToLower())

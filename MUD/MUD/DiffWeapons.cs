@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
-    public class DifferentsWeapons
+    public class DiffWeapons
     {
         List<Weapon> weapons = new List<Weapon>();
 
-        public DifferentsWeapons()
+        public DiffWeapons()
         {
             Weapon w1 = new Weapon(10, "Toothpick", "Deadly toothpick of the Gods");
             Weapon w2 = new Weapon(15, "Daggert", "Small but deadly to some monsters");
@@ -32,9 +32,9 @@ namespace MUD
 
     public class Weapon
     {
-        int damage;
-        string name;
-        string description;
+        public int damage;
+        public string name;
+        public string description;
 
         public Weapon(int damage, string name, string description)
         {
@@ -43,5 +43,15 @@ namespace MUD
             this.description = description;
 
         }
-    }
+
+		public override string ToString()
+		{
+			string s = name + "\n";
+		   s += description + "\n";
+			s += damage + "\n";
+			return s;
+		}
+
+
+	}
 }
