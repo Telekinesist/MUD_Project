@@ -14,7 +14,7 @@ namespace MUD
             string name = Console.ReadLine();
 
             Console.WriteLine("what is your age");
-            int age = int.Parse(Console.ReadLine());
+            float age = float.Parse(Console.ReadLine());
 
             Console.WriteLine("choose you sex betrine a male or female");
             string sex = Console.ReadLine();
@@ -27,8 +27,8 @@ namespace MUD
             switch (race.ToLower())
             {
                 case "orc":
-                    Hp = 85;
-                    att = 12;
+                   Hp = 85;
+                   att = 12;
                     break;
                 case "elf":
                     Hp = 70;
@@ -44,11 +44,15 @@ namespace MUD
                     break;
                 default:
                     break;
-              
-                    Player p = new Player(name, age, sex, race);
                 
             }
-
+            Player.createPlayer(name, age, sex, race, att ,Hp);
+            C.l("name", name);
+            C.l("age", age.ToString());
+            C.l("sex", sex);
+            C.l("race", race);
+            C.l("Hp",Hp.ToString());
+            C.l("damage", att.ToString());
         }
     }
 }

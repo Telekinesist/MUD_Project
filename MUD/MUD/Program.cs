@@ -15,6 +15,7 @@ namespace MUD
 			Data.addCommands();
 			Data.addData();
 			Data.createWorld();
+            PlayerCostomization.CreatePlayer();
 
 			//While loop narrates the story, takes player input, and handles it
 			while (!(input.Equals("exit")))
