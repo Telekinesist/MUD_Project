@@ -9,6 +9,7 @@ namespace MUD
 	/**
 	* The Room object is a node in the graph that makes up the world
 	*/
+	[Serializable]
 	public class Room
 	{		
         public Chest RoomChest;

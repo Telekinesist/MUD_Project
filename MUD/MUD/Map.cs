@@ -9,6 +9,7 @@ namespace MUD
 	/**
 	 * Contans the world
 	 */
+	 [Serializable]
 	public class Map
 	{
 		//A dictionary is used for fast access to the rooms
@@ -31,5 +32,6 @@ namespace MUD
 		{
 			return Rooms[roomID];
 		}
+
 	}
 }

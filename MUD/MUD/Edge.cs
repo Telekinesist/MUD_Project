@@ -9,6 +9,7 @@ namespace MUD
 	/**
 	 * Edge only contans a destination and a price. Price is currently not used
 	 */
+	 [Serializable]
 	public class Edge
 	{
 		public Room link;

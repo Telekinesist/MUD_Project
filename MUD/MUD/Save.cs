@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace MUD
 {
@@ -35,7 +37,28 @@ namespace MUD
 				data[index] = cont.Value;
 				index++;
 			}
+
+			Data.world = loadWorld();
+
 			return data;
+		}
+
+		public static void saveWorld(Map world, bool append = false)
+		{
+			using (Stream stream = File.Open(@"..\world.dat", append ? FileMode.Append : FileMode.Create))
+			{
+				var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+				binaryFormatter.Serialize(stream, world);
+			}
+		}
+
+		public static Map loadWorld()
+		{
+			using (Stream stream = File.Open(@"..\world.dat", FileMode.Open))
+			{
+				var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+				return (Map)binaryFormatter.Deserialize(stream);
+			}
 		}
 
 		public static void save()
@@ -54,6 +77,8 @@ namespace MUD
 			x.DocumentElement.ChildNodes[0].ChildNodes[1].ChildNodes[2].Attributes["inconsis"].Value = Player.inconsitency.ToString();
 			
 			x.Save(@"..\GameData.xml");
+
+			saveWorld(Data.world);
 		}
 
 		public static void printSave(string[] data)

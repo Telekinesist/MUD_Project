@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	[Serializable]
     public class DiffWeapons
     {
         List<Weapon> weapons = new List<Weapon>();
@@ -30,6 +31,7 @@ namespace MUD
             
     }
 
+	[Serializable]
     public class Weapon
     {
         public int damage;

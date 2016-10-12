@@ -137,7 +137,7 @@ namespace MUD
 					C.t("The " + enemy.b_WhatType + " attacks while your guard is down");
 
 				}
-				else if (input.Length > 1)
+				else if (input.Length < 1)
 				{
 					C.b("You do NOTHING");
 					C.b("The " + enemy.b_WhatType.ToUpper() + " is still mad as hell");

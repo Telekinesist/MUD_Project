@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace MUD
 {
@@ -24,6 +25,10 @@ namespace MUD
 		public static DiffWeapons weapons = new DiffWeapons();
 		public static List<Chest> chests = new List<Chest>();
 		public static List<Monster> monsters = new List<Monster>();
+
+		public static SoundPlayer door = new SoundPlayer(@"..\Door.aiff");
+		public static SoundPlayer mon = new SoundPlayer(@"..\Monsters.wav");
+
 
 
 		//Command lists
@@ -83,6 +88,8 @@ namespace MUD
 			chests.Add(new Chest(700, null));
 			
 			monsters.Add(new Monster(1, "Rat", 10, 2));
+
+			
 		}
 
 		public static void createWorld()
