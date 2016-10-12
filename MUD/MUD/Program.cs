@@ -10,6 +10,7 @@ namespace MUD
 	{
 		static void Main(string[] args)
 		{
+            PlayerCostomization.CreatePlayer();
             DifferentsWeapons r = new DifferentsWeapons();
             List<Chest> DiffierentChestes;
             DiffierentChestes = new List<Chest>();
