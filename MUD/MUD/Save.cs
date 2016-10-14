@@ -43,6 +43,7 @@ namespace MUD
 			return data;
 		}
 
+		//Serializes the Map object, and stores it as a file, world.dat
 		public static void saveWorld(Map world, bool append = false)
 		{
 			using (Stream stream = File.Open(@"..\world.dat", append ? FileMode.Append : FileMode.Create))
@@ -52,6 +53,7 @@ namespace MUD
 			}
 		}
 
+		//Loads the Map object from world.dat and de-serializes it
 		public static Map loadWorld()
 		{
 			using (Stream stream = File.Open(@"..\world.dat", FileMode.Open))

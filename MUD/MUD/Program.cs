@@ -17,7 +17,7 @@ namespace MUD
 			Data.createWorld();
 			Data.door.Play();
 			
-			//Thread.Sleep(8400);
+			Thread.Sleep(8400);
 			Console.WriteLine(@"              :,.  ::  ii,   :1@0f   @@;  --          @@.   ;0@L;    ,:  .                  
   C@@tCCG0t .iLLGft1   iiiC8L             ;,,    :,,             G@@@;      ;8  ii         
 81     .f0f       ;  :C0Lf       ,.8@@@@@@@@@@@@@@@@@@@0L;ii.          .L:                   
