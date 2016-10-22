@@ -18,9 +18,8 @@ namespace MUD
 			if (room.RoomMonster != null)
 			{
 				C.t("Watch out! A " + room.RoomMonster.b_WhatType + " attacks you!");
-				Data.mon.PlayLooping();
+				
 				Interface.battle(room.RoomMonster);
-				Data.mon.Stop();
 			}
 			else if (room.RoomChest != null)
 			{

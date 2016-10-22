@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Media;
+using WMPLib;
 
 namespace MUD
 {
@@ -26,8 +27,12 @@ namespace MUD
 		public static List<Chest> chests = new List<Chest>();
 		public static List<Monster> monsters = new List<Monster>();
 
-		public static SoundPlayer door = new SoundPlayer(@"..\Door.aiff");
-		public static SoundPlayer mon = new SoundPlayer(@"..\Monsters.wav");
+
+		/*public static WindowsMediaPlayer door = new WindowsMediaPlayer();
+		public static WindowsMediaPlayer mon = new WindowsMediaPlayer();
+		public static WindowsMediaPlayer spid = new WindowsMediaPlayer();*/
+
+		public static SoundPlayer du = new SoundPlayer(@"..\du.wav");
 
 
 
@@ -88,8 +93,21 @@ namespace MUD
 			chests.Add(new Chest(700, null));
 			
 			monsters.Add(new Monster(1, "Rat", 10, 2));
+			monsters.Add( new MUD.Monster(8, "Spider", 64, 8));
 
-			
+
+			//Background music paths
+			//This only works using absolute path. Therefore, I have to< get the parent directory of the local directory and then add the file. GetCurrentDirectory does not work
+			/*door.URL = System.IO.Directory.GetParent(@"..\") + @"\Door.aiff";
+			door.controls.stop();
+			mon.URL = System.IO.Directory.GetParent(@"..\") + @"\Monsters.wav";
+			mon.controls.stop();
+			spid.URL = System.IO.Directory.GetParent(@"..\") + @"\theme.wav";
+			spid.controls.stop();*/
+
+			BM.addTrack("door", @"\Door.aiff");
+			BM.addTrack("mon", @"\Monsters.wav");
+			BM.addTrack("spid", @"\theme.wav");
 		}
 
 		public static void createWorld()
@@ -99,12 +117,54 @@ namespace MUD
 			Data.world.addRoom(2, chests[0], null, "Another dark room.");
 			Data.world.addRoom(3, chests[2], monsters[0], "This room is bright");
 			Data.world.addRoom(4, null, monsters[0], "There is only the door you came in through. This looks like a trap!");
+			Data.world.addRoom(5, null, monsters[1], "This room is filled with cobwebs");
 			Data.getRoom(1).addEdge("north", new Edge(Data.getRoom(2)));
 			Data.getRoom(2).addEdge("south", new Edge(Data.getRoom(1)));
 			Data.getRoom(3).addEdge("west", new Edge(Data.getRoom(2)));
 			Data.getRoom(1).addEdge("east", new Edge(Data.getRoom(3)));
 			Data.getRoom(2).addEdge("north", new Edge(Data.getRoom(4)));
 			Data.getRoom(4).addEdge("south", new Edge(Data.getRoom(2)));
+			Data.getRoom(1).addEdge("south", new Edge(Data.getRoom(5)));
+			Data.getRoom(5).addEdge("north", new Edge(Data.getRoom(1)));
+			
+		}
+	}
+
+
+	//Background music. 
+	/**
+	 * Controls:
+	 *		Add a track with ex BM.addTrack("door", @"\Door.aiff");
+	 *		Play a track with ex BM.play("door");
+	 *		Stop a track with ex BM.stop("door");
+	 *		
+	 *	DON'T AKS. IT WORKED THE FIRST TIME, SO IT WAS MENT TO BE!
+	 */
+	public static class BM
+	{
+		public static Dictionary<string, music> tracks = new Dictionary<string, music>();
+		public static void addTrack(string name, string path)
+		{
+			tracks.Add(name, new music(path));
+		}
+		public static void play(string trackName)
+		{
+			tracks[trackName].track.URL = tracks[trackName].path;
+		}
+		public static void stop(string trackName)
+		{
+			tracks[trackName].track.controls.pause();
+		}
+
+	}
+	public class music
+	{
+		public string path;
+		public WindowsMediaPlayer track = new WindowsMediaPlayer();
+		public music(string pathToTrack)
+		{
+			path = System.IO.Directory.GetParent(@"..\") + pathToTrack;
+			
 		}
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace MUD
 {
@@ -97,8 +97,24 @@ namespace MUD
 
 		public static void battle(Monster enemy)
 		{
+			BM.play("mon");
 			bool inBattle = true;
-			C.b("You ENGAGE in BATTLE. A " + enemy.b_WhatType.ToUpper() + " in LEVEL " + enemy.a_level + " attacks you");
+			if (enemy.b_WhatType.Equals("Spider"))
+			{
+				C.b("You ENGAGE in, Ba-");
+				//Min 150 milliseconds or the music won't pause
+				Thread.Sleep(200);
+				BM.stop("mon");
+				C.t("Wait. Where is the enemy?");
+				C.t("Oh, it's just small a spider");
+				C.t("OH WAIT CRAP, YOU A TERRIGIED OF SPIDERS!!!");
+				C.t("SOMEONE SAAAAAAAAVEE MEEEEEEEEE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+				BM.play("spid");
+			}
+			else
+			{
+				C.b("You ENGAGE in BATTLE. A " + enemy.b_WhatType.ToUpper() + " in LEVEL " + enemy.a_level + " attacks you");
+			}
 			string input;
 			Random r = new Random();
 			double damage;
@@ -170,7 +186,7 @@ namespace MUD
 				//If not dodgin, the enemy attacks
 				if (!isDoding)
 				{
-					damage = enemy.d_MostersAtt + (0.1 * r.Next(-20, 20) * enemy.d_MostersAtt);
+					damage = enemy.d_MostersAtt + (0.01 * r.Next(-20, 20) * enemy.d_MostersAtt);
 					C.b("The " + enemy.b_WhatType.ToUpper() + " ATTACKs for " + Math.Round(damage) + " DAMAGE");
 					Player.HP -= int.Parse(Math.Round(damage).ToString());
 				}
@@ -185,6 +201,9 @@ namespace MUD
 					inBattle = false;
 				}
 			}
+
+			BM.stop("mon");
+			BM.stop("spid");
 
 			//If both enemy and player dies
 			if (enemy.c_MostersHP <= 0 && Player.HP <= 0)

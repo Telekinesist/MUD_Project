@@ -2,19 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-
+using System.Media;
+using System.Threading;
 namespace MUD
 {
 	/**
 	* A faster way to write to the console
 	*/
 	static class C
-	{		
+	{
+		
+
 		//Write a string to the console
 		public static void t(string say)
 		{
-			Console.WriteLine(say);
+			foreach (char c in say)
+			{
+				Console.Write(c);
+				Data.du.Play();
+				Thread.Sleep(5);
+				
+			}
+			Data.du.Stop();
+			//The sound takes 0.05 seconds to play, but the character delay are 0.005 seconds. Therefore it is necessary to stop it.
+			Console.WriteLine();
 		}
 
 		//Writes debug information to the console. Can handle anything, not just strings.
