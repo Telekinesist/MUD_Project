@@ -10,7 +10,7 @@ namespace MUD
 	 * Player class contains information about the player
 	 * Also contains methods direcly invorlving the player
 	 */
-	static class Player
+	public static class Player
 	{
 		public static int room = 1; //Spawn
 		public static int HP = 100;
@@ -21,12 +21,31 @@ namespace MUD
 
 		public static string weapon = "fists";
 		public static float weildability = 1;
-		public static int damage = 2;
+		public static int damage;
 		public static float inconsitency = 0.2f;
-		
+        public static string name;
+        public static float age;
+        public static string sex;
+        public static string race;
 
 
-		public static void getStats()
+        public static void createPlayer(string nam, float ag, string sex1, string race1, int Dmg, int Hp)
+        {
+            name = nam;
+            age = ag;
+            sex = sex1;
+            race = race1;
+            damage = Dmg;
+            HP = Hp;
+
+        }
+
+
+
+
+
+
+        public static void getStats()
 		{
 			C.t("\t    -INVENTORY-");
 			C.l("- Room", room.ToString());
