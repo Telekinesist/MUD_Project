@@ -53,6 +53,10 @@ namespace MUD
 ▓╣▒              ▐██╣     ▓██╬       ▐██╣     ▓██╬     ▓██▒     ▓█▓∩         ▐██");
 
 			Console.ReadLine();
+
+			//Disabled temporarily
+			//PlayerCostomization.CreatePlayer();
+
 			BM.stop("door");
 			
 
