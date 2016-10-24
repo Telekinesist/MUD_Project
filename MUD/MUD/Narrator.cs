@@ -14,7 +14,7 @@ namespace MUD
 		//Runs before player gives input. Descripes the room. Starts battle if room contains monster
 		public static void enterRoom(Room room)
 		{
-			C.t(room.descrp);
+			C.t(room.descrp, 1000);
 			if (room.RoomMonster != null)
 			{
 				C.t("Watch out! A " + room.RoomMonster.b_WhatType + " attacks you!");
@@ -39,7 +39,7 @@ namespace MUD
 		//List the content of chests
 		public static void descripeChestContent(Chest chest)
 		{
-			C.t("You opened the chest. You found:");
+			C.t("You opened the chest. You found:", 1000);
 			if (chest.Hp != 0)
 			{
 				C.l("A potion! You have been healed " + chest.Hp + "HP");

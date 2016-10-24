@@ -137,6 +137,7 @@ namespace MUD
 	 *		Add a track with ex BM.addTrack("door", @"\Door.aiff");
 	 *		Play a track with ex BM.play("door");
 	 *		Stop a track with ex BM.stop("door");
+	 *		You need to wait 150 milliseconds before stopping a track.
 	 *		
 	 *	DON'T AKS. IT WORKED THE FIRST TIME, SO IT WAS MENT TO BE!
 	 */
@@ -146,14 +147,23 @@ namespace MUD
 		public static void addTrack(string name, string path)
 		{
 			tracks.Add(name, new music(path));
+			tracks[name].track.settings.setMode("loop", true);
 		}
 		public static void play(string trackName)
 		{
+			//Defining the URL plays the music from the start
 			tracks[trackName].track.URL = tracks[trackName].path;
+			
 		}
 		public static void stop(string trackName)
 		{
-			tracks[trackName].track.controls.pause();
+			//I use pause, because stopping ruins the sound player, and possible other things too
+			tracks[trackName].track.controls.stop();
+		}
+		public static void contin(string trackName)
+		{
+			//Continues paused music. (I didn't actually test this)
+			tracks[trackName].track.controls.play();
 		}
 
 	}

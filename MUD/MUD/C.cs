@@ -14,7 +14,7 @@ namespace MUD
 		
 
 		//Write a string to the console
-		public static void t(string say)
+		public static void t(string say, int pause = 0)
 		{
 			foreach (char c in say)
 			{
@@ -26,6 +26,8 @@ namespace MUD
 			Data.du.Stop();
 			//The sound takes 0.05 seconds to play, but the character delay are 0.005 seconds. Therefore it is necessary to stop it.
 			Console.WriteLine();
+			Thread.Sleep(pause);
+			
 		}
 
 		//Writes debug information to the console. Can handle anything, not just strings.
@@ -54,9 +56,18 @@ namespace MUD
 		}
 
 		//Writes battle messages to the console
-		public static void b(string say)
+		public static void b(string say, int pause = 0)
 		{
-			Console.WriteLine("\t>>>" + say + "<<<");
+			Console.Write("\t>>>");
+			foreach(char c in say)
+			{
+				Console.Write(c);
+				Data.du.Play();
+				Thread.Sleep(3);
+			}
+			Data.du.Stop();
+			Console.WriteLine("<<<");
+			Thread.Sleep(pause);
 		}
 	}
 }
