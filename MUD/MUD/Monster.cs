@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	[Serializable]
     public class Monster
     {
         public int a_level;
