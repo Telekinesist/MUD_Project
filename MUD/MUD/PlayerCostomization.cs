@@ -14,7 +14,22 @@ namespace MUD
             string name = Console.ReadLine();
 
             Console.WriteLine("what is your age");
-            float age = float.Parse(Console.ReadLine());
+            bool isReading = true;
+            float age = 19;
+            while (isReading)
+            {
+                try
+                {
+                    age = float.Parse(Console.ReadLine());
+                    isReading = false;
+                }
+                catch (Exception q)
+                {
+                    Console.WriteLine("Error, plece type a number as your age, else are you a FUC**** basted, and i will find you, and kill you !!! ");
+                }
+            }
+
+           
 
             Console.WriteLine("choose you sex betrine a male or female");
             string sex = Console.ReadLine();

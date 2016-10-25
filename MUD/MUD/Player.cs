@@ -14,6 +14,7 @@ namespace MUD
 	{
 		public static int room = 1; //Spawn
 		public static int HP = 100;
+        public static int baseAtt;
 
 		public static string armor = "shirt";
 		public static float damageResistance = 0;
@@ -21,6 +22,7 @@ namespace MUD
 
 		public static string weapon = "fists";
 		public static float weildability = 1;
+        public static int weapDamg;
 		public static int damage;
 		public static float inconsitency = 0.2f;
         public static string name;
@@ -35,7 +37,7 @@ namespace MUD
             age = ag;
             sex = sex1;
             race = race1;
-            damage = Dmg;
+            baseAtt = Dmg;
             HP = Hp;
 
         }

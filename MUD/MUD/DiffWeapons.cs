@@ -48,7 +48,7 @@ namespace MUD
 		{
 			string s = name + "\n";
 		   s += description + "\n";
-			s += damage + "\n";
+			s += damage + " Damege" +"\n";
 			return s;
 		}
 
