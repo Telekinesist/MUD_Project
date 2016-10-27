@@ -43,14 +43,7 @@ namespace MUD
 						Save.save();
 					}
 				}
-				else if (input.Equals("reset"))
-				{
-					if (accept("\n\n\nAre you SURE you want to reset?\nYes/No", "All data reset to their default value", "Reset not commenced"))
-					{
-						Save.load(true);
-					}
-				}
-				else if (input.Equals("load"))
+				else if (Data.load.Any(input.Contains));
 				{
 					if (accept("\n\n\nAre you SURE you want to load? All progress will be lost\nYes/No", "Loaded save data", "Load not commenced"))
 					{

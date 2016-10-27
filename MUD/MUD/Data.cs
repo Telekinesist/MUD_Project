@@ -10,7 +10,7 @@ namespace MUD
 	 */
 	static class Data
 	{
-		public static Map world;
+		public static Map world = new Map();
 		public static Room getRoom(int id)
 		{
 			return world.Rooms[id];
@@ -34,6 +34,8 @@ namespace MUD
 		public static List<string> attack = new List<string>();
 		public static List<string> dodge = new List<string>();
 		public static List<string> think = new List<string>();
+		public static List<string> load = new List<string>();
+		public static List<string> newGame = new List<string>();
 
 		public static void addCommands()
 		{
@@ -58,7 +60,13 @@ namespace MUD
 
 			think.Add("think");
 			think.Add("meditate");
-			
+
+			load.Add("load");
+			load.Add("continue");
+
+			newGame.Add("new game");
+			newGame.Add("new");
+
 
 			Interface.directions.Add("north");
 			Interface.directions.Add("ssouth");
@@ -96,7 +104,6 @@ namespace MUD
 		public static void createWorld()
 		{
 			//Creates test world
-			world = new Map();
 			Data.world.addRoom(1, null, null, "You stand in a dark room with two doors. What will you do?");
 			Data.world.addRoom(2, chests[0], null, "Another dark room.");
 			Data.world.addRoom(3, chests[2], monsters[0], "This room is bright");

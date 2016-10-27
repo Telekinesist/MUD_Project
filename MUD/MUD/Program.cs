@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace MUD
 {
@@ -10,7 +11,7 @@ namespace MUD
 			//Ads data
 			Data.addCommands();
 			Data.addData();
-			Data.createWorld();
+			
 			
 			BM.play("door");
 
@@ -46,13 +47,38 @@ namespace MUD
 ███████▀╜╜╜╜╜╜╜╜╜▓██╣     ▓██╬       ▐██╣     ▓██╬     ▓██▒     ▓███████████████
 ██▓╜╜╜╜          ▐██╣     ▓██╬       ▐██╣     ▓██╬     ▓██▒     ▓██▀╜╜╜╜╜╜╜╜╜▓██
 ▓╣▒              ▐██╣     ▓██╬       ▐██╣     ▓██╬     ▓██▒     ▓█▓∩         ▐██");
-
+			C.t("Press Enter");
 			Console.ReadLine();
+			Console.WriteLine("Start new game, og Continue prevois saved game?");
+			bool choosing = true;
+			while (choosing)
+			{
 
-			//Disabled temporarily
-			//PlayerCostomization.CreatePlayer();
+				input = Console.ReadLine().ToLower();
+				if (Data.load.Any(input.Contains))
+				{
+					choosing = false;
+					Save.load();
+					BM.stop("door");
+				}
+				else if (Data.newGame.Any(input.Contains))
+				{
+					Data.createWorld();
+					PlayerCostomization.CreatePlayer();
+					choosing = false;
+					BM.stop("door");
+				}
+				else if (input.Equals("exit") || input.Equals("skip"))
+				{
+					choosing = false;
+				}
+				else
+				{
+					C.t("Sorry, I don't understand that");
+				}
+			}
 
-			BM.stop("door");
+			
 			
 
 			//While loop narrates the story, takes player input, and handles it
