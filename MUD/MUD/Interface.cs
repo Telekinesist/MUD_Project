@@ -47,14 +47,14 @@ namespace MUD
 				{
 					if (accept("\n\n\nAre you SURE you want to reset?\nYes/No", "All data reset to their default value", "Reset not commenced"))
 					{
-						Save.setValues(Save.load(1));
+						Save.load(true);
 					}
 				}
 				else if (input.Equals("load"))
 				{
 					if (accept("\n\n\nAre you SURE you want to load? All progress will be lost\nYes/No", "Loaded save data", "Load not commenced"))
 					{
-						Save.setValues(Save.load(0));
+						Save.load();
 					}
 				}
 				if (haveChest && input.Equals("open chest"))

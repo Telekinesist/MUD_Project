@@ -1,8 +1,4 @@
-﻿ using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace MUD
 {
@@ -10,6 +6,7 @@ namespace MUD
 	 * Player class contains information about the player
 	 * Also contains methods direcly invorlving the player
 	 */
+	 [Serializable]
 	public static class Player
 	{
 		public static int room = 1; //Spawn
@@ -23,10 +20,10 @@ namespace MUD
 		public static float weildability = 1;
 		public static int damage = 2;
 		public static float inconsitency = 0.2f;
-        public static string name;
-        public static float age;
-        public static string sex;
-        public static string race;
+        public static string name = "default";
+        public static float age = 0f;
+        public static string sex = "default";
+        public static string race = "default";
 
 
         public static void createPlayer(string nam, float ag, string sex1, string race1, int Dmg, int Hp)
@@ -41,13 +38,10 @@ namespace MUD
         }
 
 
-
-
-
-
         public static void getStats()
 		{
 			C.t("\t    -INVENTORY-");
+			C.l(sex + " " + race, name + ", " + age + " years old");
 			C.l("- Room", room.ToString());
 			C.l("- Health points", HP.ToString());
 			C.l("- Armor", armor);

@@ -10,7 +10,7 @@ namespace MUD
 	 */
 	static class Data
 	{
-		public static Map world = new Map();
+		public static Map world;
 		public static Room getRoom(int id)
 		{
 			return world.Rooms[id];
@@ -96,6 +96,7 @@ namespace MUD
 		public static void createWorld()
 		{
 			//Creates test world
+			world = new Map();
 			Data.world.addRoom(1, null, null, "You stand in a dark room with two doors. What will you do?");
 			Data.world.addRoom(2, chests[0], null, "Another dark room.");
 			Data.world.addRoom(3, chests[2], monsters[0], "This room is bright");

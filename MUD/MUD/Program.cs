@@ -4,7 +4,7 @@ namespace MUD
 {
 	class Program
 	{
-		static string input = "";
+		public static string input = "";
 		static void Main(string[] args)
 		{
 			//Ads data
