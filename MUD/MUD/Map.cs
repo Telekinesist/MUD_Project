@@ -20,7 +20,17 @@ namespace MUD
 
 		public void addRoom(int roomId, Chest b = null, Monster c = null, string description = "")
         {
-			Room room = new Room(roomId, b, c, description);
+			Monster mon = null;
+			Chest che = null;
+			if (c != null)
+			{
+				mon = new Monster(c.a_level, c.b_WhatType, c.c_MostersHP, c.d_MostersAtt);
+			}
+			if (b != null)
+			{
+				che = new Chest(b.Hp, b.weapon);
+			}
+			Room room = new Room(roomId, b, mon, description);
 			Rooms.Add(roomId, room);
 			numOfRooms++;
 		}
