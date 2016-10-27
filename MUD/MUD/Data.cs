@@ -1,8 +1,5 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Media;
 using WMPLib;
 
@@ -26,11 +23,6 @@ namespace MUD
 		public static DiffWeapons weapons = new DiffWeapons();
 		public static List<Chest> chests = new List<Chest>();
 		public static List<Monster> monsters = new List<Monster>();
-
-
-		/*public static WindowsMediaPlayer door = new WindowsMediaPlayer();
-		public static WindowsMediaPlayer mon = new WindowsMediaPlayer();
-		public static WindowsMediaPlayer spid = new WindowsMediaPlayer();*/
 
 		public static SoundPlayer du = new SoundPlayer(@"..\du.wav");
 
@@ -95,16 +87,7 @@ namespace MUD
 			monsters.Add(new Monster(1, "Rat", 10, 2));
 			monsters.Add( new MUD.Monster(8, "Spider", 64, 8));
 
-
-			//Background music paths
-			//This only works using absolute path. Therefore, I have to< get the parent directory of the local directory and then add the file. GetCurrentDirectory does not work
-			/*door.URL = System.IO.Directory.GetParent(@"..\") + @"\Door.aiff";
-			door.controls.stop();
-			mon.URL = System.IO.Directory.GetParent(@"..\") + @"\Monsters.wav";
-			mon.controls.stop();
-			spid.URL = System.IO.Directory.GetParent(@"..\") + @"\theme.wav";
-			spid.controls.stop();*/
-
+			//Adds tracks and their paths
 			BM.addTrack("door", @"\Door.aiff");
 			BM.addTrack("mon", @"\Monsters.wav");
 			BM.addTrack("spid", @"\theme.wav");
@@ -130,20 +113,23 @@ namespace MUD
 		}
 	}
 
-
-	//Background music. 
 	/**
+	 * Background Music
+	 * Uses windows media player (sorry. I'm not feeling like importing a sound library)
+	 * 
 	 * Controls:
 	 *		Add a track with ex BM.addTrack("door", @"\Door.aiff");
 	 *		Play a track with ex BM.play("door");
 	 *		Stop a track with ex BM.stop("door");
 	 *		You need to wait 150 milliseconds before stopping a track.
 	 *		
-	 *	DON'T AKS. IT WORKED THE FIRST TIME, SO IT WAS MENT TO BE!
+	 *	DON'T AKS. I KNOW HOW IT LOOKS. IT WORKED THE FIRST TIME, SO IT WAS MENT TO BE! (Again, sorry)
 	 */
 	public static class BM
 	{
+		//Dictionary with all music tracks
 		public static Dictionary<string, music> tracks = new Dictionary<string, music>();
+		//Adds a piece of music
 		public static void addTrack(string name, string path)
 		{
 			tracks.Add(name, new music(path));
@@ -162,19 +148,24 @@ namespace MUD
 		}
 		public static void contin(string trackName)
 		{
-			//Continues paused music. (I didn't actually test this)
+			//Continues paused music. (I didn't actually test this. I don't need it)
 			tracks[trackName].track.controls.play();
 		}
 
 	}
+
+	/**
+	 * Music object for background music.
+	 * Contains name (for reference) and path
+	 */
 	public class music
 	{
 		public string path;
 		public WindowsMediaPlayer track = new WindowsMediaPlayer();
 		public music(string pathToTrack)
 		{
+			//Gets the path to parent directory and adds the local file path
 			path = System.IO.Directory.GetParent(@"..\") + pathToTrack;
-			
 		}
 	}
 }

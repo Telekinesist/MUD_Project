@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Xml;
 using System.IO;
-using System.Xml.Serialization;
 
 namespace MUD
 {
@@ -37,16 +32,24 @@ namespace MUD
 				data[index] = cont.Value;
 				index++;
 			}
-
-			Data.world = loadWorld();
+			if (reset.Equals(1))
+			{
+				Data.world = new Map();
+				Data.createWorld();
+			}
+			else
+			{
+				Data.world = loadWorld();
+			}
+			
 
 			return data;
 		}
 
 		//Serializes the Map object, and stores it as a file, world.dat
-		public static void saveWorld(Map world, bool append = false)
+		public static void saveWorld(Map world)
 		{
-			using (Stream stream = File.Open(@"..\world.dat", append ? FileMode.Append : FileMode.Create))
+			using (Stream stream = File.Open(@"..\world.dat", false ? FileMode.Append : FileMode.Create))
 			{
 				var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
 				binaryFormatter.Serialize(stream, world);
