@@ -43,7 +43,7 @@ namespace MUD
 						Save.save();
 					}
 				}
-				else if (Data.load.Any(input.Contains));
+				else if (input.Contains("load"))
 				{
 					if (accept("\n\n\nAre you SURE you want to load? All progress will be lost\nYes/No", "Loaded save data", "Load not commenced"))
 					{

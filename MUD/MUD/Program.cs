@@ -52,6 +52,10 @@ namespace MUD
 
 			C.t("Press Enter");
 			Console.ReadLine();
+
+
+
+			//Start menu
 			Console.WriteLine("Start new game, og Continue prevois saved game?");
 			bool choosing = true;
 			while (choosing)
@@ -71,7 +75,14 @@ namespace MUD
 					choosing = false;
 					BM.stop("door");
 				}
-				else if (input.Equals("exit") || input.Equals("skip"))
+				else if (input.Equals("skip"))
+				{
+					choosing = false;
+					Data.createWorld();
+					BM.stop("door");
+
+				}
+				else if (input.Equals("exit"))
 				{
 					choosing = false;
 				}
