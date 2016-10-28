@@ -87,6 +87,10 @@ namespace MUD
 			}
 		}
 
+
+
+
+
 		public static void battle(Monster enemy)
 		{
 			BM.play("mon");
