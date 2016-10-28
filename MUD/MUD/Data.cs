@@ -99,6 +99,10 @@ namespace MUD
 			BM.addTrack("door", @"\Door.aiff");
 			BM.addTrack("mon", @"\Monsters.wav");
 			BM.addTrack("spid", @"\theme.wav");
+
+			BM.addSound("go", @"\OpenClose.wav");
+			BM.addSound("heal", @"\Heal.wav");
+			BM.addSound("pickUp", @"\PickUp.wav");
 		}
 
 		public static void createWorld()
@@ -142,6 +146,11 @@ namespace MUD
 		{
 			tracks.Add(name, new music(path));
 			tracks[name].track.settings.setMode("loop", true);
+		}
+		//These are inteded for sounds that play once.
+		public static void addSound(string name, string path)
+		{
+			tracks.Add(name, new music(path));
 		}
 		public static void play(string trackName)
 		{
