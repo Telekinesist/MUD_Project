@@ -38,6 +38,7 @@ namespace MUD
 			if (chest.Hp != 0)
 			{
 				C.l("A potion! You have been healed " + chest.Hp + "HP");
+				BM.play("heal");
 			}
 			if (chest.weapon != null)
 			{
@@ -46,6 +47,7 @@ namespace MUD
 				{
 					Player.damage = chest.weapon.damage;
 					Player.weapon = chest.weapon.name;
+					BM.play("pickUp");
 				}
 			}
 			if (chest.Hp.Equals(null) && chest.weapon.Equals(null))
