@@ -19,6 +19,16 @@ namespace MUD
 		{
 			return world.Rooms[Player.room];
 		}
+		public static void addRoom(int roomId, Chest b = null, Monster c = null, string description = "")
+		{
+			world.addRoom(roomId, b, c, description);
+		}
+		//Links two rooms together
+		public static void addEdge(int room1, string directionOut, int room2, string directionIn)
+		{
+			world.Rooms[room1].addEdge(directionOut, new Edge(world.Rooms[room2]));
+			world.Rooms[room2].addEdge(directionIn, new Edge(world.Rooms[room1]));
+		}
 
 		public static DiffWeapons weapons = new DiffWeapons();
 		public static List<Chest> chests = new List<Chest>();
@@ -108,19 +118,19 @@ namespace MUD
 		public static void createWorld()
 		{
 			//Creates test world
-			Data.world.addRoom(1, null, null, "You stand in a dark room with two doors. What will you do?");
-			Data.world.addRoom(2, chests[0], null, "Another dark room.");
-			Data.world.addRoom(3, chests[2], monsters[0], "This room is bright");
-			Data.world.addRoom(4, null, monsters[0], "There is only the door you came in through. This looks like a trap!");
-			Data.world.addRoom(5, null, monsters[1], "This room is filled with cobwebs");
-			Data.getRoom(1).addEdge("north", new Edge(Data.getRoom(2)));
-			Data.getRoom(2).addEdge("south", new Edge(Data.getRoom(1)));
-			Data.getRoom(3).addEdge("west", new Edge(Data.getRoom(2)));
-			Data.getRoom(1).addEdge("east", new Edge(Data.getRoom(3)));
-			Data.getRoom(2).addEdge("north", new Edge(Data.getRoom(4)));
-			Data.getRoom(4).addEdge("south", new Edge(Data.getRoom(2)));
-			Data.getRoom(1).addEdge("south", new Edge(Data.getRoom(5)));
-			Data.getRoom(5).addEdge("north", new Edge(Data.getRoom(1)));
+			addRoom(1, null, null, "You stand in a dark room with two doors. What will you do?");
+			addRoom(2, chests[0], null, "Another dark room.");
+			addRoom(3, chests[2], monsters[0], "This room is bright");
+			addRoom(4, null, monsters[0], "There is only the door you came in through. This looks like a trap!");
+			addRoom(5, null, monsters[1], "This room is filled with cobwebs");
+			getRoom(1).addEdge("north", new Edge(getRoom(2)));
+			getRoom(2).addEdge("south", new Edge(getRoom(1)));
+			getRoom(3).addEdge("west", new Edge(getRoom(2)));
+			getRoom(1).addEdge("east", new Edge(getRoom(3)));
+			getRoom(2).addEdge("north", new Edge(getRoom(4)));
+			getRoom(4).addEdge("south", new Edge(getRoom(2)));
+			getRoom(1).addEdge("south", new Edge(getRoom(5)));
+			getRoom(5).addEdge("north", new Edge(getRoom(1)));
 			
 		}
 	}

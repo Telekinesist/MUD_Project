@@ -11,7 +11,6 @@ namespace MUD
 	{
 		//A dictionary is used for fast access to the rooms
 		public Dictionary<int, Room> Rooms = new Dictionary<int, Room>();
-		int numOfRooms = 0;
 
 		public Map()
 		{
@@ -32,7 +31,6 @@ namespace MUD
 			}
 			Room room = new Room(roomId, b, mon, description);
 			Rooms.Add(roomId, room);
-			numOfRooms++;
 		}
 
 		public Room getRoomById(int roomID)
