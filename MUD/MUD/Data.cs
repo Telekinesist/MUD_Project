@@ -96,9 +96,9 @@ namespace MUD
 			monsters.Add( new MUD.Monster(8, "Spider", 64, 8));
 
 			//Adds tracks and their paths
-			BM.addTrack("door", @"\Door.aiff");
-			BM.addTrack("mon", @"\Monsters.wav");
-			BM.addTrack("spid", @"\theme.wav");
+			BM.addTrack("door", @"\Door.mp3");
+			BM.addTrack("mon", @"\Monsters.mp3");
+			BM.addTrack("spid", @"\theme.mp3");
 
 			BM.addSound("go", @"\OpenClose.wav");
 			BM.addSound("heal", @"\Heal.wav");
