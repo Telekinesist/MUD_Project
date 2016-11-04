@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace MUD
 {
 	/**
@@ -14,10 +9,11 @@ namespace MUD
 		//Runs before player gives input. Descripes the room. Starts battle if room contains monster
 		public static void enterRoom(Room room)
 		{
-			C.t(room.descrp);
+			C.t(room.descrp, 1000);
 			if (room.RoomMonster != null)
 			{
 				C.t("Watch out! A " + room.RoomMonster.b_WhatType + " attacks you!");
+				
 				Interface.battle(room.RoomMonster);
 			}
 			else if (room.RoomChest != null)
@@ -38,10 +34,11 @@ namespace MUD
 		//List the content of chests
 		public static void descripeChestContent(Chest chest)
 		{
-			C.t("You opened the chest. You found:");
+			C.t("You opened the chest. You found:", 1000);
 			if (chest.Hp != 0)
 			{
 				C.l("A potion! You have been healed " + chest.Hp + "HP");
+				BM.play("heal");
 			}
 			if (chest.weapon != null)
 			{
@@ -51,6 +48,7 @@ namespace MUD
 					Player.weapDamg = chest.weapon.damage;
                     Player.damage = Player.baseAtt + Player.weapDamg; 
 					Player.weapon = chest.weapon.name;
+					BM.play("pickUp");
 				}
 			}
 			if (chest.Hp.Equals(null) && chest.weapon.Equals(null))

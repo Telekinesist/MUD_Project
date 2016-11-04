@@ -19,7 +19,8 @@
 [Xx]86/
 [Bb]uild/
 bld/
-[Bb]in/
+# Bin contains music files, and is therefore needed
+#[Bb]in/
 [Oo]bj/
 
 # Visual Studio 2015 cache/options directory

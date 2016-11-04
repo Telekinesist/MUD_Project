@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	[Serializable]
     public class Chest
     {
 		public int Hp;

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <savegame>
+    <location val="2" />
+    <player>
+      <HP val="100" />
+      <armor desc="shirt" damRes="0" damRed="0" />
+      <weapon desc="fists" wieldAb="1" damage="2" inconsis="0,2" />
+      <personal name="default" age="0" sex="default" race="default" />
+    </player>
+  </savegame>
+  <default>
+    <location val="1" />
+    <player>
+      <HP val="100" />
+      <armor desc="shirt" damRes="0" damRed="0" />
+      <weapon desc="fists" wieldAb="1" damage="2" inconsis="0.2" />
+    </player>
+  </default>
+  <settings>
+  </settings>
+</data>

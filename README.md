@@ -2,6 +2,9 @@
 This is a school project made to teach coding in C#. Why are you reading this!? 
 This is an awfully boring project if you are not involved. Just leave it.
 
+Asmo was here! This project is NOT boring! >:-(
+
+
 
 
 
