@@ -10,6 +10,7 @@ namespace MUD
 	 */
 	static class Data
 	{
+		public static bool makeNoise = false;
 		public static Map world = new Map();
 		public static Room getRoom(int id)
 		{
@@ -24,10 +25,10 @@ namespace MUD
 			world.addRoom(roomId, b, c, description);
 		}
 		//Links two rooms together
-		public static void addEdge(int room1, string directionOut, int room2, string directionIn)
+		public static void addEdge(int room1, string directionOut, int room2, string directionIn, string description = null)
 		{
-			world.Rooms[room1].addEdge(directionOut, new Edge(world.Rooms[room2]));
-			world.Rooms[room2].addEdge(directionIn, new Edge(world.Rooms[room1]));
+			world.Rooms[room1].addEdge(directionOut, new Edge(world.Rooms[room2], description));
+			world.Rooms[room2].addEdge(directionIn, new Edge(world.Rooms[room1], description));
 		}
 
 		public static DiffWeapons weapons = new DiffWeapons();
@@ -103,7 +104,8 @@ namespace MUD
 			chests.Add(new Chest(700, null));
 			
 			monsters.Add(new Monster(1, "Rat", 10, 2));
-			monsters.Add( new MUD.Monster(8, "Spider", 64, 8));
+			monsters.Add(new Monster(8, "Spider", 64, 8));
+			monsters.Add(new Monster(1, "Grumpy monster", 10, 1, true));
 
 			//Adds tracks and their paths
 			BM.addTrack("door", @"\Door.mp3");
@@ -118,7 +120,7 @@ namespace MUD
 		public static void createWorld()
 		{
 			//Creates test world
-			addRoom(1, null, null, "You stand in a dark room with two doors. What will you do?");
+			/*addRoom(1, null, null, "You stand in a dark room with two doors. What will you do?");
 			addRoom(2, chests[0], null, "Another dark room.");
 			addRoom(3, chests[2], monsters[0], "This room is bright");
 			addRoom(4, null, monsters[0], "There is only the door you came in through. This looks like a trap!");
@@ -130,8 +132,18 @@ namespace MUD
 			getRoom(2).addEdge("north", new Edge(getRoom(4)));
 			getRoom(4).addEdge("south", new Edge(getRoom(2)));
 			getRoom(1).addEdge("south", new Edge(getRoom(5)));
-			getRoom(5).addEdge("north", new Edge(getRoom(1)));
-			
+			getRoom(5).addEdge("north", new Edge(getRoom(1)));*/
+
+			//Creates the game world
+			//Monsters and chests not included untill Cim "fix" the lists
+			//Each path is split into hundrets. Each subpath is split into tenths. That way it is easy to keep track of the branching rooms.
+			addRoom(0, null, monsters[2], "You wake up");
+			addRoom(100, null, null, "A forest");
+			addRoom(200, null, null, "Bright room");
+			addRoom(300, null, null, "Bassin room");
+			addEdge(0, "north", 300, "south", "old door");
+			addEdge(0, "east", 200, "west", "brand new door");
+			addEdge(0, "west", 100, "north", "rusted old door. This one probably makes a loud noise if you try to open it");
 		}
 	}
 

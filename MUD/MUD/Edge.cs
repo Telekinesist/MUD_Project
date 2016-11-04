@@ -13,12 +13,12 @@ namespace MUD
 	public class Edge
 	{
 		public Room link;
-		public int distance;
+		public string descr;
 
-		public Edge(Room linkedRoom, int price = 0)
+		public Edge(Room linkedRoom, string description = null)
 		{
 			link = linkedRoom;
-			distance = price;
+			descr = description;
 		}
 	}
 }

@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace MUD
 {
 	/**
@@ -12,9 +14,22 @@ namespace MUD
 			C.t(room.descrp, 1000);
 			if (room.RoomMonster != null)
 			{
-				C.t("Watch out! A " + room.RoomMonster.b_WhatType + " attacks you!");
-				
-				Interface.battle(room.RoomMonster);
+				if (room.RoomMonster.isSleeping)
+				{
+					if (Data.makeNoise)
+					{
+						C.t("You have awoken the " + room.RoomMonster.b_WhatType.ToLower() + " from its sleep. The " + room.RoomMonster.b_WhatType.ToLower() + " is pissed.");
+					}
+					else
+					{
+						C.t("You freeze as you see a " + room.RoomMonster.b_WhatType.ToLower() + " sleeping. Better be carefull");
+					}
+				}
+				else
+				{
+					C.t("Watch out! A " + room.RoomMonster.b_WhatType.ToLower() + " attacks you!");
+					Interface.battle(room.RoomMonster);
+				}
 			}
 			else if (room.RoomChest != null)
 			{
@@ -53,6 +68,60 @@ namespace MUD
 			if (chest.Hp.Equals(null) && chest.weapon.Equals(null))
 			{
 				C.t("Nothing. The chest is empty");
+			}
+		}
+
+		public static void lookAround()
+		{
+			int doorCount = 0;
+			List<Edge> direct = new List<Edge>()
+			{
+				Data.room().north,
+				Data.room().south,
+				Data.room().east,
+				Data.room().west
+			};
+
+			foreach (Edge e in direct)
+			{
+				if (e != null)
+				{
+					C.l("There is a door in the west end of the room", "The door is " + Data.room().west);
+				}
+			}
+
+			if (Data.room().west != null)
+			{
+				doorCount++;
+			}
+			if (Data.room().east != null)
+			{
+				doorCount++;
+			}
+			if (Data.room().north != null)
+			{
+				doorCount++;
+			}
+			if (Data.room().south != null)
+			{
+				doorCount++;
+			}
+			C.t("There are " + doorCount + " doors");
+			if (Data.room().west != null)
+			{
+				
+			}
+			if (Data.room().east != null)
+			{
+				doorCount++;
+			}
+			if (Data.room().north != null)
+			{
+				doorCount++;
+			}
+			if (Data.room().south != null)
+			{
+				doorCount++;
 			}
 		}
 	}

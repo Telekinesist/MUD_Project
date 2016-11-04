@@ -9,7 +9,7 @@ namespace MUD
 	 [Serializable]
 	public static class Player
 	{
-		public static int room = 1; //Spawn
+		public static int room = 0; //Spawn
 		public static int HP = 100;
 
 		public static string armor = "shirt";
@@ -52,7 +52,6 @@ namespace MUD
 		
 		public static void move(string direction)
 		{
-			bool success = false;
 			switch (direction[0])
 			{
 				case 'n':
@@ -60,7 +59,7 @@ namespace MUD
 					{
 						C.t("You went north");
 						room = Data.getRoom(room).north.link.id;
-						success = true;
+						BM.play("go");
 					}
 					else
 					{
@@ -73,7 +72,7 @@ namespace MUD
 					{
 						C.t("You went south");
 						room = Data.getRoom(room).south.link.id;
-						success = true;
+						BM.play("go");
 					}
 					else
 					{
@@ -85,7 +84,7 @@ namespace MUD
 					{
 						C.t("You went east");
 						room = Data.getRoom(room).east.link.id;
-						success = true;
+						BM.play("go");
 					}
 					else
 					{
@@ -97,7 +96,7 @@ namespace MUD
 					{
 						C.t("You went west");
 						room = Data.getRoom(room).west.link.id;
-						success = true;
+						BM.play("go");
 					}
 					else
 					{
@@ -111,7 +110,7 @@ namespace MUD
 					{
 						C.t("You went north");
 						room = Data.getRoom(room).north.link.id;
-						success = true;
+						BM.play("go");
 					}
 					else
 					{
@@ -124,7 +123,7 @@ namespace MUD
 					{
 						C.t("You went south");
 						room = Data.getRoom(room).south.link.id;
-						success = true;
+						BM.play("go");
 					}
 					else
 					{
@@ -136,7 +135,7 @@ namespace MUD
 					{
 						C.t("You went east");
 						room = Data.getRoom(room).east.link.id;
-						success = true;
+						BM.play("go");
 					}
 					else
 					{
@@ -148,7 +147,7 @@ namespace MUD
 					{
 						C.t("You went west");
 						room = Data.getRoom(room).west.link.id;
-						success = true;
+						BM.play("go");
 					}
 					else
 					{
@@ -156,10 +155,6 @@ namespace MUD
 					}
 					break;
 
-			}
-			if (success)
-			{
-				BM.play("go");
 			}
 		}
 	}

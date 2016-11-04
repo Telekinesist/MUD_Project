@@ -49,7 +49,7 @@ namespace MUD
 		public override string ToString()
 		{
 			string s = name + "\n";
-		   s += description + "\n";
+			s += description + "\n";
 			s += damage + "\n";
 			return s;
 		}

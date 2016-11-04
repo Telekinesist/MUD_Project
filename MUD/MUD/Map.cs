@@ -23,7 +23,7 @@ namespace MUD
 			Chest che = null;
 			if (c != null)
 			{
-				mon = new Monster(c.a_level, c.b_WhatType, c.c_MostersHP, c.d_MostersAtt);
+				mon = new Monster(c.a_level, c.b_WhatType, c.c_MostersHP, c.d_MostersAtt, c.isSleeping);
 			}
 			if (b != null)
 			{
