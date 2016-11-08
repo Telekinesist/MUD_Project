@@ -10,6 +10,7 @@ namespace MUD
 	 */
 	static class Data
 	{
+		public static bool makeNoise = false;
 		public static Map world = new Map();
 		public static Room getRoom(int id)
 		{
@@ -18,6 +19,16 @@ namespace MUD
 		public static Room room()
 		{
 			return world.Rooms[Player.room];
+		}
+		public static void addRoom(int roomId, Chest b = null, Monster c = null, string description = "")
+		{
+			world.addRoom(roomId, b, c, description);
+		}
+		//Links two rooms together
+		public static void addEdge(int room1, int room2, string directionTag, string description = "")
+		{
+			world.Rooms[room1].addEdge(world.Rooms[room2], directionTag, description);
+			world.Rooms[room2].addEdge(world.Rooms[room1], directionTag, description);
 		}
 
 		public static DiffWeapons weapons = new DiffWeapons();
@@ -93,7 +104,8 @@ namespace MUD
 			chests.Add(new Chest(700, null));
 			
 			monsters.Add(new Monster(1, "Rat", 10, 2));
-			monsters.Add( new MUD.Monster(8, "Spider", 64, 8));
+			monsters.Add(new Monster(8, "Spider", 64, 8));
+			monsters.Add(new Monster(1, "Grumpy monster", 10, 1, true));
 
 			//Adds tracks and their paths
 			BM.addTrack("door", @"\Door.mp3");
@@ -108,20 +120,42 @@ namespace MUD
 		public static void createWorld()
 		{
 			//Creates test world
-			Data.world.addRoom(1, null, null, "You stand in a dark room with two doors. What will you do?");
-			Data.world.addRoom(2, chests[0], null, "Another dark room.");
-			Data.world.addRoom(3, chests[2], monsters[0], "This room is bright");
-			Data.world.addRoom(4, null, monsters[0], "There is only the door you came in through. This looks like a trap!");
-			Data.world.addRoom(5, null, monsters[1], "This room is filled with cobwebs");
-			Data.getRoom(1).addEdge("north", new Edge(Data.getRoom(2)));
-			Data.getRoom(2).addEdge("south", new Edge(Data.getRoom(1)));
-			Data.getRoom(3).addEdge("west", new Edge(Data.getRoom(2)));
-			Data.getRoom(1).addEdge("east", new Edge(Data.getRoom(3)));
-			Data.getRoom(2).addEdge("north", new Edge(Data.getRoom(4)));
-			Data.getRoom(4).addEdge("south", new Edge(Data.getRoom(2)));
-			Data.getRoom(1).addEdge("south", new Edge(Data.getRoom(5)));
-			Data.getRoom(5).addEdge("north", new Edge(Data.getRoom(1)));
-			
+			/*addRoom(1, null, null, "You stand in a dark room with two doors. What will you do?");
+			addRoom(2, chests[0], null, "Another dark room.");
+			addRoom(3, chests[2], monsters[0], "This room is bright");
+			addRoom(4, null, monsters[0], "There is only the door you came in through. This looks like a trap!");
+			addRoom(5, null, monsters[1], "This room is filled with cobwebs");
+			getRoom(1).addEdge("north", new Edge(getRoom(2)));
+			getRoom(2).addEdge("south", new Edge(getRoom(1)));
+			getRoom(3).addEdge("west", new Edge(getRoom(2)));
+			getRoom(1).addEdge("east", new Edge(getRoom(3)));
+			getRoom(2).addEdge("north", new Edge(getRoom(4)));
+			getRoom(4).addEdge("south", new Edge(getRoom(2)));
+			getRoom(1).addEdge("south", new Edge(getRoom(5)));
+			getRoom(5).addEdge("north", new Edge(getRoom(1)));*/
+
+			//Creates the game world
+			//Monsters and chests not included untill Cim "fix" the lists
+			//Each path is split into hundrets. Each subpath is split into tenths. That way it is easy to keep track of the branching rooms.
+			addRoom(0, null, monsters[2], "You wake up");
+			addRoom(100, null, null, "A forest");
+			addRoom(200, null, null, "Bright room");
+			addRoom(300, null, null, "");
+			addRoom(301, null, monsters[0], "This; Room - is on faiyeaaaaaaa.\n...Crap.");
+			addRoom(302, null, null, "You stand in a very cold room");
+			addRoom(303, null, null, "\"This room has furniture!\" you think to yourself after you have calmed down over the shock.\nYou almost couldn't see the furniture for the sheer ammounts of cats");
+			addRoom(304, null, null, "You exit a vomatorium into a stadium. It seems to be the olympics.");
+			addRoom(305, null, monsters[1], "Oooh. This is a decently equipped weapon arsenal");
+			//Prop spelled wrong. Add win feature thing for this room
+			addRoom(306, null, null, "You stand in a brobdbargianly large hallway");
+			addRoom(310, null, monsters[0], "It REALLY smells in here");
+			addRoom(311, null, null, "You can hear... A bird?");
+
+			addEdge(0, 300, "old", "old door");
+			//Custom edge
+			world.getRoomById(300).edges[0] = new Edge(world.getRoomById(0), "back", "back to the room you woke up in");
+			addEdge(0, 200, "new", "brand new door");
+			addEdge(0, 100, "rust", "rusted old door. This one probably makes a loud noise if you try to open it");
 		}
 	}
 

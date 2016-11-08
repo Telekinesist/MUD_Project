@@ -27,14 +27,7 @@ namespace MUD
 				}
 				else if (Data.move.Any(input.Contains))
 				{
-					foreach (string direct in directions)
-					{
-						if (input.Contains(" " + direct))
-						{
-							Player.move(direct);
-							break;
-						}
-					}
+					Player.move(input);
 				}
 				else if (input.Contains("save"))
 				{
@@ -50,7 +43,11 @@ namespace MUD
 						Save.load();
 					}
 				}
-				if (haveChest && input.Equals("open chest"))
+				else if (input.Contains("look"))
+				{
+					Narrator.lookAround();
+				}
+				else if (haveChest && input.Contains("open chest"))
 				{
 					Narrator.descripeChestContent(Data.room().RoomChest);
 					Player.HP += Data.room().RoomChest.Hp;
