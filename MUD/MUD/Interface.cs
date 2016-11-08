@@ -27,14 +27,7 @@ namespace MUD
 				}
 				else if (Data.move.Any(input.Contains))
 				{
-					foreach (string direct in directions)
-					{
-						if (input.Contains(" " + direct))
-						{
-							Player.move(direct);
-							break;
-						}
-					}
+					Player.move(input);
 				}
 				else if (input.Contains("save"))
 				{

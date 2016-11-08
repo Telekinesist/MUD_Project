@@ -25,10 +25,10 @@ namespace MUD
 			world.addRoom(roomId, b, c, description);
 		}
 		//Links two rooms together
-		public static void addEdge(int room1, string directionOut, int room2, string directionIn, string description = null)
+		public static void addEdge(int room1, int room2, string directionTag, string description = "")
 		{
-			world.Rooms[room1].addEdge(directionOut, new Edge(world.Rooms[room2], description));
-			world.Rooms[room2].addEdge(directionIn, new Edge(world.Rooms[room1], description));
+			world.Rooms[room1].addEdge(world.Rooms[room2], directionTag, description);
+			world.Rooms[room2].addEdge(world.Rooms[room1], directionTag, description);
 		}
 
 		public static DiffWeapons weapons = new DiffWeapons();
@@ -140,10 +140,22 @@ namespace MUD
 			addRoom(0, null, monsters[2], "You wake up");
 			addRoom(100, null, null, "A forest");
 			addRoom(200, null, null, "Bright room");
-			addRoom(300, null, null, "Bassin room");
-			addEdge(0, "north", 300, "south", "old door");
-			addEdge(0, "east", 200, "west", "brand new door");
-			addEdge(0, "west", 100, "north", "rusted old door. This one probably makes a loud noise if you try to open it");
+			addRoom(300, null, null, "");
+			addRoom(301, null, monsters[0], "This; Room - is on faiyeaaaaaaa.\n...Crap.");
+			addRoom(302, null, null, "You stand in a very cold room");
+			addRoom(303, null, null, "\"This room has furniture!\" you think to yourself after you have calmed down over the shock.\nYou almost couldn't see the furniture for the sheer ammounts of cats");
+			addRoom(304, null, null, "You exit a vomatorium into a stadium. It seems to be the olympics.");
+			addRoom(305, null, monsters[1], "Oooh. This is a decently equipped weapon arsenal");
+			//Prop spelled wrong. Add win feature thing for this room
+			addRoom(306, null, null, "You stand in a brobdbargianly large hallway");
+			addRoom(310, null, monsters[0], "It REALLY smells in here");
+			addRoom(311, null, null, "You can hear... A bird?");
+
+			addEdge(0, 300, "old", "old door");
+			//Custom edge
+			world.getRoomById(300).edges[0] = new Edge(world.getRoomById(0), "back", "back to the room you woke up in");
+			addEdge(0, 200, "new", "brand new door");
+			addEdge(0, 100, "rust", "rusted old door. This one probably makes a loud noise if you try to open it");
 		}
 	}
 

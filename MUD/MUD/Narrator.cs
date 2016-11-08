@@ -12,7 +12,11 @@ namespace MUD
 		public static void enterRoom(Room room)
 		{
 			C.t(room.descrp, 1000);
-			if (room.RoomMonster != null)
+			if (room.customForce != null)
+			{
+				Force.story(room.customForce);
+			}
+			else if (room.RoomMonster != null)
 			{
 				if (room.RoomMonster.isSleeping)
 				{
@@ -22,7 +26,7 @@ namespace MUD
 					}
 					else
 					{
-						C.t("You freeze as you see a " + room.RoomMonster.b_WhatType.ToLower() + " sleeping. Better be carefull");
+						C.t("You freeze as you see a " + room.RoomMonster.b_WhatType.ToLower() + " sleeping. Better be carefull...");
 					}
 				}
 				else
@@ -43,6 +47,19 @@ namespace MUD
 					Interface.haveChest = false;
 					C.t("Here is a chest you already opened");
 				}
+			}
+			if (room.isNew)
+			{
+				lookAround();
+				room.isNew = false;
+			}
+			if (room.customOption != null)
+			{
+				Option.story(room.customOption);
+			}
+			if (room.customEnd != null)
+			{
+				End.story(room.customEnd);
 			}
 		}
 
@@ -73,55 +90,10 @@ namespace MUD
 
 		public static void lookAround()
 		{
-			int doorCount = 0;
-			List<Edge> direct = new List<Edge>()
+			C.t("There are " + Data.room().edges.Count + " doors in this room");
+			foreach (Edge e in Data.room().edges)
 			{
-				Data.room().north,
-				Data.room().south,
-				Data.room().east,
-				Data.room().west
-			};
-
-			foreach (Edge e in direct)
-			{
-				if (e != null)
-				{
-					C.l("There is a door in the west end of the room", "The door is " + Data.room().west);
-				}
-			}
-
-			if (Data.room().west != null)
-			{
-				doorCount++;
-			}
-			if (Data.room().east != null)
-			{
-				doorCount++;
-			}
-			if (Data.room().north != null)
-			{
-				doorCount++;
-			}
-			if (Data.room().south != null)
-			{
-				doorCount++;
-			}
-			C.t("There are " + doorCount + " doors");
-			if (Data.room().west != null)
-			{
-				
-			}
-			if (Data.room().east != null)
-			{
-				doorCount++;
-			}
-			if (Data.room().north != null)
-			{
-				doorCount++;
-			}
-			if (Data.room().south != null)
-			{
-				doorCount++;
+				C.t("There is a " + e.descr);
 			}
 		}
 	}

@@ -14,11 +14,13 @@ namespace MUD
 	{
 		public Room link;
 		public string descr;
+		public string tag;
 
-		public Edge(Room linkedRoom, string description = null)
+		public Edge(Room linkedRoom, string directionTag, string description = null)
 		{
 			link = linkedRoom;
 			descr = description;
+			tag = directionTag;
 		}
 	}
 }
