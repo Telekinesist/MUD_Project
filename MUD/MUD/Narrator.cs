@@ -48,6 +48,7 @@ namespace MUD
 					Player.weapDamg = chest.weapon.damage;
                     Player.damage = Player.baseAtt + Player.weapDamg; 
 					Player.weapon = chest.weapon.name;
+                    Player.weaponDescription = chest.weapon.description;
 					BM.play("pickUp");
 				}
 			}

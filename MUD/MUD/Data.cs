@@ -90,10 +90,12 @@ namespace MUD
 		{
 			chests.Add(new Chest(50, weapons.GetRandomWeapon()));
 			chests.Add(new Chest(0, weapons.GetRandomWeapon()));
-			chests.Add(new Chest(700, null));
+			chests.Add(new Chest(50, null));
+            chests.Add(new Chest(0, weapons.GetRandomWeapon()));
 			
 			monsters.Add(new Monster(1, "Rat", 10, 2));
-			monsters.Add( new MUD.Monster(8, "Spider", 64, 8));
+			monsters.Add(new Monster(8, "Spider", 64, 8));
+            monsters.Add(new Monster(13, "Bat", 150, 15));
 
 			//Adds tracks and their paths
 			BM.addTrack("door", @"\Door.mp3");

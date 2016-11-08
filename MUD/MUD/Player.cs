@@ -11,12 +11,12 @@ namespace MUD
 	{
 		public static int room = 1; //Spawn
 		public static int HP = 100;
-
-		public static string armor = "shirt";
+        public static int baseAtt;
+        public static string armor = "shirt";
 		public static float damageResistance = 0;
 		public static int damageReduction = 0;
-
-		public static string weapon = "fists";
+        public static int weapDamg;
+        public static string weapon = "fists";
 		public static float weildability = 1;
 		public static int damage = 2;
 		public static float inconsitency = 0.2f;
@@ -24,7 +24,7 @@ namespace MUD
         public static float age = 0f;
         public static string sex = "default";
         public static string race = "default";
-
+        public static string weaponDescription = "default";
 
         public static void createPlayer(string nam, float ag, string sex1, string race1, int Dmg, int Hp)
         {
@@ -32,7 +32,7 @@ namespace MUD
             age = ag;
             sex = sex1;
             race = race1;
-            damage = Dmg;
+            baseAtt = Dmg;
             HP = Hp;
 
         }
@@ -47,6 +47,7 @@ namespace MUD
 			C.l("- Armor", armor);
 			C.l("- Defence", damageResistance.ToString() + "% + " + damageReduction.ToString());
 			C.l("- Weapon", weapon);
+            C.l("- Weapon description", weaponDescription);
 			C.l("- Damage", damage + " and " + weildability + " wieldability ");
 		}
 		

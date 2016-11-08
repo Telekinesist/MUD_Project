@@ -23,7 +23,7 @@ namespace MUD
                     age = float.Parse(Console.ReadLine());
                     isReading = false;
                 }
-                catch (Exception q)
+                catch
                 {
                     Console.WriteLine("Error, plece type a number as your age, else are you a FUC**** basted, and i will find you, and kill you !!! ");
                 }
@@ -38,24 +38,24 @@ namespace MUD
 
             string race = Console.ReadLine();
             int Hp = 100;
-            int att = 10;
+            int att = 2;
             switch (race.ToLower())
             {
                 case "orc":
                    Hp = 85;
-                   att = 12;
+                   att = 3;
                     break;
                 case "elf":
                     Hp = 70;
-                    att = 15;
+                    att = 5;
                     break;
                 case "dwarf":
                     Hp = 125;
-                    att = 7;
+                    att = 1;
                     break;
                 case "human":
                     Hp = 100;
-                    att = 10;
+                    att = 2;
                     break;
                 default:
                     break;
