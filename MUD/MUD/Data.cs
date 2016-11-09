@@ -160,6 +160,7 @@ namespace MUD
 			addRoom(314, null, null, "\"This room has furniture!\" you think to yourself after you have calmed down over the shock.\nYou almost couldn't see the furniture for the sheer ammounts of cats");
 			addRoom(315, null, null, "You exit a vomatorium into a stadium. It seems to be the olympics.");
 			addRoom(316, null, monsters[1], "Oooh. This is a decently equipped weapon arsenal");
+            addRoom(317, null, null, "You can feel the fresh air as you walk out into the light. You are finally free from the weird dungeon system");
             //Prop spelled wrong. Add win feature thing for this room
             addRoom(321, null, null, "The room has no floor, only water. You will have to swim to get to the next door.");
             addRoom(322, null, null, "Im so HOT, HOT damn! Literally, it's friggin' hot in here");
@@ -167,13 +168,13 @@ namespace MUD
             addRoom(324, chests[1], null, "You can't see shit in here! Oh wait, don't we have PG rating? Fuck! Damn, did it again! Oh bugger...");
             addRoom(325, chests[1], null, "All around you is GOLD! SO MUCH GOLD! MUAHAAHAH, I'M RICH!!");
             addRoom(326, null, null, "You realize that everthing uptil now has just been a ruse. You feel your life being drained from you very being, slowly fading away...");
-			addRoom(307, null, null, "You stand in a brobdbargianly large hallway");
-			addRoom(330, null, monsters[0], "It REALLY smells in here");
+			addRoom(330, null, monsters[0], "It REALLY smells in here. Oh. That's an ogre...");
             
 
 			addEdge(0, 300, "old", "old door");
             //Custom edge
-            addEdge(300, 311, "mobster", "leads to something");
+            world.getRoomById(300).edges[0] = new Edge(world.getRoomById(0), "back", "back to the room you woke up in");
+            addEdge(300, 311, "something", "leads to something");
             addEdge(311, 312, "red", "very red handle");
             addEdge(312, 313, "cool", "very cold handle");
             addEdge(313, 314, "cat", "miawing door");
@@ -185,16 +186,25 @@ namespace MUD
             addEdge(323, 324, "fog", "fog emmintaing from the door");
             addEdge(324, 325, "gold", "door with golden handle");
             addEdge(325, 326, "normal", "strikingly normal door");
-			world.getRoomById(300).edges[0] = new Edge(world.getRoomById(0), "back", "back to the room you woke up in");
+            addEdge(323, 330, "smell", "door with a strong smell");
+            addEdge(330, 316, "sharp", "door with sharp handle");
 			addEdge(0, 200, "new", "brand new door");
-            addEdge(200, 201, "shines", "shiny keyhole");
-            addEdge(201, 202, "music", "sound comes from the door");
-            addEdge(202, 203, "fabby", "dildo as handle");
+            addEdge(200, 201, "shiny", "shiny keyhole");
+            addEdge(201, 202, "sound", "sound comes from the door");
+            addEdge(202, 203, "dildo", "dildo as handle");
             addEdge(203, 204, "regular", "regular looking door");
             addEdge(204, 250, "boss", "door with BOSS written on it");
 			addEdge(0, 100, "rust", "rusted old door. This one probably makes a loud noise if you try to open it");
             addEdge(100, 101, "funny", "funny looking door");
             addEdge(101, 112, "book", "booklike door");
+            addEdge(112, 113, "grimy", "grimy doorhandle");
+            addEdge(113, 114, "D&D", "door with D&D logo");
+            addEdge(113, 121, "nazi", "red door with swastika");
+            addEdge(121, 122, "gun", "gunhandle on the door");
+            addEdge(122, 130, "bars", "door with bars");
+            addEdge(250, 130, "bars", "door with bars");
+            addEdge(250, 251, "buzz", "door that buzzes");
+
 		}
 	}
 
