@@ -54,6 +54,7 @@ namespace MUD
 			}
 			Data.du.Stop();
 			//The sound takes 0.05 seconds to play, but the character delay are 0.005 seconds. Therefore it is necessary to stop it.
+			Thread.Sleep(pause);
 			
 
 		}

@@ -139,6 +139,8 @@ namespace MUD
 			//Each path is split into hundrets. Each subpath is split into tenths. That way it is easy to keep track of the branching rooms.
 			addRoom(0, null, monsters[2], "You wake up");
 			addRoom(100, null, null, "A forest");
+			getRoom(100).isNew = false;
+			getRoom(100).customEnd = "deathPit";
 			addRoom(200, null, null, "Bright room");
 			addRoom(300, null, null, "");
 			addRoom(301, null, monsters[0], "This; Room - is on faiyeaaaaaaa.\n...Crap.");

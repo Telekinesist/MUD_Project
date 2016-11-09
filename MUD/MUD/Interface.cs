@@ -220,7 +220,9 @@ namespace MUD
 			else if (Player.HP <= 0)
 			{
 				C.t("You have been slain by the " + enemy.b_WhatType + ". You collapse dead on the floor", 3000);
-				C.t("\t\t\t\tGAME OVER\n\n\n\n\n\n\n\n\n\n", 10000);
+				C.t("\t\t\t\tGAME OVER");
+				Console.Write("\n\n\n\n\n\n\n\n\n\n");
+				C.t("", 10000);
 				C.t("But this is the demo, so whatever. Here, have full HP");
 				Player.HP = 100;
 			}
