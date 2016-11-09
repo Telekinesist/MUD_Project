@@ -144,15 +144,15 @@ namespace MUD
             addRoom(113, null, null, "You grow a pair of glasses and a lot of zits. You begin to slouch and correct everyone who isn't completely right");
             addRoom(114, chests[2], null, "You walk out into the light, gretted by a pair of fellow geeks. They point you to their D&D van. You are finally free. I guess?");
             addRoom(121, chests[1], monsters[1], "Your hand slowly begins to ascend into the wellknown salute, and on your arms grows a red armband with the forbidden insignia. Heil!");
-            addRoom(122, chests[3], null, "Disgusted by the last rooms experience, you look around to see... Weapons? A whole lot of weapons? Sweet!");
+            addRoom(122, chests[1], null, "Disgusted by the last rooms experience, you look around to see... Weapons? A whole lot of weapons? Sweet!");
             addRoom(130, null, null, "The door slams behind you, and the room goes dark. Uanble to re-open the door, you accept your fate... An eternity in lockdown."); 
 			addRoom(200, null, null, "You have always seen things from the bright side, however, this is really just too much brightness");
             addRoom(201, null, monsters[1], "Oh snap, a snappy monster!");
             addRoom(202, null, null, "You are brought back to the eighties through the might of Disco! Saaay.... That's actually kind of a catchy rythm");
             addRoom(203, null, null, "Your inner straightness begins to scream as you walk into the slightly boisterous, gay nightclub. What a sight!");
             addRoom(204, null, monsters[1], "Dang, a monster!");
-            addRoom(250, null, monsters[3], "The door simply said BOSS");
-            addRoom(251, chests[3], null, "You hear a familiar buzzing noise coming from that weird apperatus over there. Slowly you step into it and SWOOP! You appear to have teleported to freedom.");
+            addRoom(250, null, monsters[2], "The door simply said BOSS");
+            addRoom(251, chests[1], null, "You hear a familiar buzzing noise coming from that weird apperatus over there. Slowly you step into it and SWOOP! You appear to have teleported to freedom.");
 			addRoom(300, null, null, "You press your whole weight against the door, and it makes a loud shriek as it slowly opens. You look into the next room, only to face another grim looking creature, this time fully awake. As if that wasn’t enough, you hear that the slumbering creature behind you is not slumbering any more. It starts to run against you, and you cry out loud with closed eyes as it leaps against you. To your big surprise, the creature doesn’t attack you, but rather the creature in the new room. Baffled, you watch them tear at each other, until the the formerly sleeping one stands victorious. You watch in silence as it walks back, and lies down to continue you sleeping. As you turn you back to it to continue forward, it seems as though it blinks at you.");
             addRoom(311, null, monsters[1], "Fack, a friggin' mobster!");
 			addRoom(312, null, monsters[0], "This; Room - is on faiyeaaaaaaa.\n...Crap.");
@@ -165,7 +165,7 @@ namespace MUD
             addRoom(322, null, null, "Im so HOT, HOT damn! Literally, it's friggin' hot in here");
             addRoom(323, null, null, "A very green lookin' fella with pointy ears greet you. What even is this, some kind of LoTR rip-off?");
             addRoom(324, chests[1], null, "You can't see shit in here! Oh wait, don't we have PG rating? Fuck! Damn, did it again! Oh bugger...");
-            addRoom(325, chests[5], null, "All around you is GOLD! SO MUCH GOLD! MUAHAAHAH, I'M RICH!!");
+            addRoom(325, chests[1], null, "All around you is GOLD! SO MUCH GOLD! MUAHAAHAH, I'M RICH!!");
             addRoom(326, null, null, "You realize that everthing uptil now has just been a ruse. You feel your life being drained from you very being, slowly fading away...");
 			addRoom(307, null, null, "You stand in a brobdbargianly large hallway");
 			addRoom(330, null, monsters[0], "It REALLY smells in here");
@@ -191,7 +191,7 @@ namespace MUD
             addEdge(201, 202, "music", "sound comes from the door");
             addEdge(202, 203, "fabby", "dildo as handle");
             addEdge(203, 204, "regular", "regular looking door");
-            addEdge(204, 205, "boss", "door with BOSS written on it");
+            addEdge(204, 250, "boss", "door with BOSS written on it");
 			addEdge(0, 100, "rust", "rusted old door. This one probably makes a loud noise if you try to open it");
             addEdge(100, 101, "funny", "funny looking door");
             addEdge(101, 112, "book", "booklike door");
