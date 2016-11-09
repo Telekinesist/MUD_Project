@@ -52,6 +52,7 @@ namespace MUD
             Weapon l3 = new Weapon(90, "test13", "");
             Weapon l4 = new Weapon(100, "test14", "");
             Weapon l5 = new Weapon(250, "test15", "");
+
             JunkWeapons.Add(j1);                    CommonWeapons.Add(c1);                    RareWeapons.Add(r1);
             JunkWeapons.Add(j2);                    CommonWeapons.Add(c2);                    RareWeapons.Add(r2);
             JunkWeapons.Add(j3);                    CommonWeapons.Add(c3);                    RareWeapons.Add(r3);
