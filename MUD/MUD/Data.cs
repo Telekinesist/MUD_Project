@@ -114,7 +114,9 @@ namespace MUD
             // stor sandsyglig hed for legedary men også en lille sandsyglig for legendary.
             chests.Add(new Chest(0, weapons.GetRandomWeapon(1, 2, 2, 3, 100)));
             //MEGET STOR SANDSYGLIGHED FOR ET MEGA AWESOME VÅBEN. 
+
             chests.Add(new Chest(50, null));
+
 
 			monsters.Add(new Monster(1, "Rat", 10, 2));
 			monsters.Add(new Monster(8, "Spider", 64, 8));
