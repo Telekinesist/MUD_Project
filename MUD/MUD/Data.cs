@@ -138,39 +138,63 @@ namespace MUD
 			//Monsters and chests not included untill Cim "fix" the lists
 			//Each path is split into hundrets. Each subpath is split into tenths. That way it is easy to keep track of the branching rooms.
 			addRoom(0, null, monsters[2], "You wake up");
-			addRoom(100, null, null, "A forest");
-			addRoom(200, null, null, "Bright room");
+			addRoom(100, null, null, "A forest. Wait, aren't I in a dungeon??");
+            addRoom(101, null, monsters[1], "A new monster? Seriously?");
+            addRoom(112, chests[1], null, "You look around, stunned. So many books!!!");
+            addRoom(113, null, null, "You grow a pair of glasses and a lot of zits. You begin to slouch and correct everyone who isn't completely right");
+            addRoom(114, chests[2], null, "You walk out into the light, gretted by a pair of fellow geeks. They point you to their D&D van. You are finally free. I guess?");
+            addRoom(121, chests[1], monsters[1], "Your hand slowly begins to ascend into the wellknown salute, and on your arms grows a red armband with the forbidden insignia. Heil!");
+            addRoom(122, chests[3], null, "Disgusted by the last rooms experience, you look around to see... Weapons? A whole lot of weapons? Sweet!");
+            addRoom(130, null, null, "The door slams behind you, and the room goes dark. Uanble to re-open the door, you accept your fate... An eternity in lockdown."); 
+			addRoom(200, null, null, "You have always seen things from the bright side, however, this is really just too much brightness");
             addRoom(201, null, monsters[1], "Oh snap, a snappy monster!");
             addRoom(202, null, null, "You are brought back to the eighties through the might of Disco! Saaay.... That's actually kind of a catchy rythm");
-            addRoom(203, null, null, "Your inner straightness begins to scream as you walk into the slightly boisterous, gay nightclub. What a sigh!");
+            addRoom(203, null, null, "Your inner straightness begins to scream as you walk into the slightly boisterous, gay nightclub. What a sight!");
+            addRoom(204, null, monsters[1], "Dang, a monster!");
+            addRoom(250, null, monsters[3], "The door simply said BOSS");
+            addRoom(251, chests[3], null, "You hear a familiar buzzing noise coming from that weird apperatus over there. Slowly you step into it and SWOOP! You appear to have teleported to freedom.");
 			addRoom(300, null, null, "You press your whole weight against the door, and it makes a loud shriek as it slowly opens. You look into the next room, only to face another grim looking creature, this time fully awake. As if that wasn’t enough, you hear that the slumbering creature behind you is not slumbering any more. It starts to run against you, and you cry out loud with closed eyes as it leaps against you. To your big surprise, the creature doesn’t attack you, but rather the creature in the new room. Baffled, you watch them tear at each other, until the the formerly sleeping one stands victorious. You watch in silence as it walks back, and lies down to continue you sleeping. As you turn you back to it to continue forward, it seems as though it blinks at you.");
             addRoom(311, null, monsters[1], "Fack, a friggin' mobster!");
 			addRoom(312, null, monsters[0], "This; Room - is on faiyeaaaaaaa.\n...Crap.");
-			addRoom(313, null, null, "You stand in a very cold room");
+			addRoom(313, null, null, "Although you have always yearned to be cool, this cool might be a tad too much. The ice dripping from your nose is a nice touch tho!");
 			addRoom(314, null, null, "\"This room has furniture!\" you think to yourself after you have calmed down over the shock.\nYou almost couldn't see the furniture for the sheer ammounts of cats");
 			addRoom(315, null, null, "You exit a vomatorium into a stadium. It seems to be the olympics.");
 			addRoom(316, null, monsters[1], "Oooh. This is a decently equipped weapon arsenal");
             //Prop spelled wrong. Add win feature thing for this room
             addRoom(321, null, null, "The room has no floor, only water. You will have to swim to get to the next door.");
             addRoom(322, null, null, "Im so HOT, HOT damn! Literally, it's friggin' hot in here");
-            addRoom(323, null, null, "A very green lookin' fella with pointy ears greed you. What even is this, some kind of LoTR rip-off?");
+            addRoom(323, null, null, "A very green lookin' fella with pointy ears greet you. What even is this, some kind of LoTR rip-off?");
+            addRoom(324, chests[1], null, "You can't see shit in here! Oh wait, don't we have PG rating? Fuck! Damn, did it again! Oh bugger...");
+            addRoom(325, chests[5], null, "All around you is GOLD! SO MUCH GOLD! MUAHAAHAH, I'M RICH!!");
+            addRoom(326, null, null, "You realize that everthing uptil now has just been a ruse. You feel your life being drained from you very being, slowly fading away...");
 			addRoom(307, null, null, "You stand in a brobdbargianly large hallway");
-			addRoom(310, null, monsters[0], "It REALLY smells in here");
-			addRoom(311, null, null, "You can hear... A bird?");
+			addRoom(330, null, monsters[0], "It REALLY smells in here");
             
 
 			addEdge(0, 300, "old", "old door");
             //Custom edge
-            addEdge(300, 301, "mobster", "leads to something");
-            addEdge(301, 302, "hot", "very hot handle");
-            addEdge(302, 303, "cool", "very cold handle");
-            addEdge(303, 304, "cat", "miawing door");
+            addEdge(300, 311, "mobster", "leads to something");
+            addEdge(311, 312, "red", "very red handle");
+            addEdge(312, 313, "cool", "very cold handle");
+            addEdge(313, 314, "cat", "miawing door");
+            addEdge(314, 315, "roman" "door with roman numerals");
+            addEdge(315, 316, "sharp", "door with sharp handle");
+            addEdge(300, 321, "wet", "door with wet handle");
+            addEdge(321, 322, "hot", "very hot handle");
+            addEdge(322, 323, "text", "handle with weird text on it");
+            addEdge(323, 324, "fog", "fog emmintaing from the door");
+            addEdge(324, 325, "gold", "door with golden handle");
+            addEdge(325, 326, "normal" "strikingly normal door");
 			world.getRoomById(300).edges[0] = new Edge(world.getRoomById(0), "back", "back to the room you woke up in");
 			addEdge(0, 200, "new", "brand new door");
             addEdge(200, 201, "shines", "shiny keyhole");
             addEdge(201, 202, "music", "sound comes from the door");
             addEdge(202, 203, "fabby", "dildo as handle");
+            addEdge(203, 204, "regular", "regular looking door");
+            addEdge(204, 205, "boss", "door with BOSS written on it");
 			addEdge(0, 100, "rust", "rusted old door. This one probably makes a loud noise if you try to open it");
+            addEdge(100, 101, ");
+            addEdge(101, 112, ")
 		}
 	}
 
