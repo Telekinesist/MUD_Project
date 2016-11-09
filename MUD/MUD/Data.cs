@@ -177,14 +177,14 @@ namespace MUD
             addEdge(311, 312, "red", "very red handle");
             addEdge(312, 313, "cool", "very cold handle");
             addEdge(313, 314, "cat", "miawing door");
-            addEdge(314, 315, "roman" "door with roman numerals");
+            addEdge(314, 315, "roman", "door with roman numerals");
             addEdge(315, 316, "sharp", "door with sharp handle");
             addEdge(300, 321, "wet", "door with wet handle");
             addEdge(321, 322, "hot", "very hot handle");
             addEdge(322, 323, "text", "handle with weird text on it");
             addEdge(323, 324, "fog", "fog emmintaing from the door");
             addEdge(324, 325, "gold", "door with golden handle");
-            addEdge(325, 326, "normal" "strikingly normal door");
+            addEdge(325, 326, "normal", "strikingly normal door");
 			world.getRoomById(300).edges[0] = new Edge(world.getRoomById(0), "back", "back to the room you woke up in");
 			addEdge(0, 200, "new", "brand new door");
             addEdge(200, 201, "shines", "shiny keyhole");
@@ -193,8 +193,8 @@ namespace MUD
             addEdge(203, 204, "regular", "regular looking door");
             addEdge(204, 205, "boss", "door with BOSS written on it");
 			addEdge(0, 100, "rust", "rusted old door. This one probably makes a loud noise if you try to open it");
-            addEdge(100, 101, ");
-            addEdge(101, 112, ")
+            addEdge(100, 101, "funny", "funny looking door");
+            addEdge(101, 112, "book", "booklike door");
 		}
 	}
 
