@@ -19,29 +19,40 @@ namespace MUD
 
         public DiffWeapons()
         {
-            Weapon w1 = new Weapon(5, "Toothpick", "Deadly toothpick of the Gods");
-            Weapon w2 = new Weapon(10, "Daggert", "Small but deadly to some monsters");
-            Weapon w3 = new Weapon(15, "Small Sword", "The chosen weapon to a noob");
-            Weapon w4 = new Weapon(20, "Normel Sword", " The chosen weapon to a well player");
-            Weapon w5 = new Weapon(25, "Long Sword", "The longest sword in the univers" );
-          
-           
-            JunkWeapons.Add(w1);
-            CommonWeapons.Add(w2);
-            RareWeapons.Add(w3);
-            EpicWeapons.Add(w4);
-            LegendaryWeapons.Add(w5);
-          
-            
+            Weapon j1 = new Weapon(1, "Plasik Spoon", "Good luck, you need it");
+            Weapon j2 = new Weapon(2, "Plasik Fork", "You can try, just try to kill anything");
+            Weapon j3 = new Weapon(3, "Plasik Spork ", "Just try to kill anything");
+            Weapon j4 = new Weapon(4, "Small toy Dagget  ", "Roleplay weapon");
+            Weapon j5 = new Weapon(5, "Toy Sword", "Roleplay weapon" );
+            //alle junk våben der er laves i spille
+            Weapon c1 = new Weapon(8, "Rusten Spoon", "It's rusten but can maybe kill");
+            Weapon c2 = new Weapon(10, "Rusten Fork", "It's rusten, but can kill");
+            Weapon c3 = new Weapon(13,"Rusten Spork", "It was just to feed babys but now it can by just to KILL");
+            Weapon c4 = new Weapon(15, "Rusten Dagget","");
+            Weapon c5 = new Weapon(18,"Rusten Sword","");
+            //alle common våben der laves i spillet 
+
+            JunkWeapons.Add(j1);                    CommonWeapons.Add(c1);                    RareWeapons.Add();
+            JunkWeapons.Add(j2);                    CommonWeapons.Add(c2);                    RareWeapons.Add();
+            JunkWeapons.Add(j3);                    CommonWeapons.Add(c3);                    RareWeapons.Add();
+            JunkWeapons.Add(j4);                    CommonWeapons.Add(c4);                    RareWeapons.Add();
+            JunkWeapons.Add(j5);                    CommonWeapons.Add(c5);                    RareWeapons.Add();
+
+                                  EpicWeapons.Add();                  LegendaryWeapons.Add();
+                                  EpicWeapons.Add();                  LegendaryWeapons.Add();
+                                  EpicWeapons.Add();                  LegendaryWeapons.Add();
+                                  EpicWeapons.Add();                  LegendaryWeapons.Add();
+                                  EpicWeapons.Add();                  LegendaryWeapons.Add();
+                                           
             
         }
 
 
         public Weapon GetRandomWeapon(int JunkChance, int CommonChance, int RareChance, int EpicChance, int LegendaryChance)
         {
-            Weapon w = null;
+           
             int r = rand.Next(0, 101);
-                if (r <= JunkChance)
+            if (r <= JunkChance)
             {
                 Random Junk = new Random();
                 int i = Junk.Next(0, JunkWeapons.Count);
@@ -53,11 +64,25 @@ namespace MUD
                 int i = Common.Next(0, CommonWeapons.Count);
                 return CommonWeapons[i];
             }
-                else if (r > CommonChance && r <= RareChance)
+            else if (r > CommonChance && r <= RareChance)
             {
-
+                Random Rare = new Random();
+                int i = Rare.Next(0, RareWeapons.Count);
+                return RareWeapons[i];
             }
-            return w;
+            else if (r > RareChance && r <= EpicChance)
+            {
+                Random Epic = new Random();
+                int i = Epic.Next(0, EpicWeapons.Count);
+                return EpicWeapons[i];
+            }
+            else 
+            {
+                Random Legendary = new Random();
+                int i = Legendary.Next(0, LegendaryWeapons.Count);
+                return LegendaryWeapons[i];
+            }
+         
         }
  
 
