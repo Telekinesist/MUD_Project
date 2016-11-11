@@ -77,8 +77,10 @@ namespace MUD
 				C.l(chest.weapon.ToString());
 				if (Interface.accept("Will you take the weapon?", "You took the weapon", "You decided to leave the weapon. A rat took it instead"))
 				{
-					Player.damage = chest.weapon.damage;
+					Player.weapDamg = chest.weapon.damage;
+                    Player.damage = Player.baseAtt + Player.weapDamg; 
 					Player.weapon = chest.weapon.name;
+                    Player.weaponDescription = chest.weapon.description;
 					BM.play("pickUp");
 				}
 			}
