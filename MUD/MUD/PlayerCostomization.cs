@@ -10,16 +10,16 @@ namespace MUD
     {
         public static void CreatePlayer()
         {
-            Console.WriteLine("what is your name");
+            Console.WriteLine("What is your name");
             string name = Console.ReadLine();
 
-            Console.WriteLine("what is your age");
+            Console.WriteLine("What is your age");
             float age = float.Parse(Console.ReadLine());
 
-            Console.WriteLine("choose you sex betrine a male or female");
+            Console.WriteLine("Are you male, female, or inbetween?");
             string sex = Console.ReadLine();
 
-            Console.WriteLine("choose your race betrine, orc, elf , dwarf, Or human");
+            Console.WriteLine("Choose your race between, orc, elf , dwarf, Or human");
 
             string race = Console.ReadLine();
             int Hp = 100;
