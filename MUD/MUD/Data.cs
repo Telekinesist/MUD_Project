@@ -116,14 +116,18 @@ namespace MUD
             //MEGET STOR SANDSYGLIGHED FOR ET MEGA AWESOME VÅBEN. 
 
             chests.Add(new Chest(50, null));
+            chests.Add(new Chest(25, null));
 
 
 			monsters.Add(new Monster(1, "Rat", 10, 2));
+            monsters.Add(new Monster(2, "Bigger Rat", 15, 4));
 			monsters.Add(new Monster(8, "Spider", 64, 8));
-            monsters.Add(new Monster(13, "Bat", 150, 15));
+            monsters.Add(new Monster(13, "Bat", , ));
+            monsters.Add(new Monster(100, "Dracon", 200, 15));
+             monsters.Add(new Monster(75, "Ogre",175,13));
 
-			//Adds tracks and their paths
-			BM.addTrack("door", @"\Door.mp3");
+            //Adds tracks and their paths
+            BM.addTrack("door", @"\Door.mp3");
 			BM.addTrack("mon", @"\Monsters.mp3");
 			BM.addTrack("spid", @"\theme.mp3");
 
