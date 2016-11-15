@@ -65,10 +65,13 @@
     <Compile Include="Data.cs" />
     <Compile Include="DiffWeapons.cs" />
     <Compile Include="Edge.cs" />
+    <Compile Include="End.cs" />
+    <Compile Include="Force.cs" />
     <Compile Include="Interface.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Narrator.cs" />
+    <Compile Include="Option.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerCostomization.cs" />
     <Compile Include="Program.cs" />

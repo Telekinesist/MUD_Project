@@ -54,7 +54,6 @@ namespace MUD
 			Console.ReadLine();
 
 
-
 			//Start menu
 			Console.WriteLine("Start new game, og Continue prevois saved game?");
 			bool choosing = true;
@@ -93,8 +92,6 @@ namespace MUD
 			}
 
 			
-			
-
 			//While loop narrates the story, takes player input, and handles it
 			while (!(input.Equals("exit")))
 			{

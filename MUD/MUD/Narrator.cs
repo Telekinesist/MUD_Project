@@ -1,4 +1,6 @@
 ﻿
+using System.Collections.Generic;
+
 namespace MUD
 {
 	/**
@@ -10,11 +12,28 @@ namespace MUD
 		public static void enterRoom(Room room)
 		{
 			C.t(room.descrp, 1000);
-			if (room.RoomMonster != null)
+			if (room.customForce != null)
 			{
-				C.t("Watch out! A " + room.RoomMonster.b_WhatType + " attacks you!");
-				
-				Interface.battle(room.RoomMonster);
+				Force.story(room.customForce);
+			}
+			else if (room.RoomMonster != null)
+			{
+				if (room.RoomMonster.isSleeping)
+				{
+					if (Data.makeNoise)
+					{
+						C.t("You have awoken the " + room.RoomMonster.b_WhatType.ToLower() + " from its sleep. The " + room.RoomMonster.b_WhatType.ToLower() + " is pissed.");
+					}
+					else
+					{
+						C.t("You freeze as you see a " + room.RoomMonster.b_WhatType.ToLower() + " sleeping. Better be carefull...");
+					}
+				}
+				else
+				{
+					C.t("Watch out! A " + room.RoomMonster.b_WhatType.ToLower() + " attacks you!");
+					Interface.battle(room.RoomMonster);
+				}
 			}
 			else if (room.RoomChest != null)
 			{
@@ -28,6 +47,19 @@ namespace MUD
 					Interface.haveChest = false;
 					C.t("Here is a chest you already opened");
 				}
+			}
+			if (room.isNew)
+			{
+				lookAround();
+				room.isNew = false;
+			}
+			if (room.customOption != null)
+			{
+				Option.story(room.customOption);
+			}
+			if (room.customEnd != null)
+			{
+				End.story(room.customEnd);
 			}
 		}
 
@@ -55,6 +87,15 @@ namespace MUD
 			if (chest.Hp.Equals(null) && chest.weapon.Equals(null))
 			{
 				C.t("Nothing. The chest is empty");
+			}
+		}
+
+		public static void lookAround()
+		{
+			C.t("There are " + Data.room().edges.Count + " doors in this room");
+			foreach (Edge e in Data.room().edges)
+			{
+				C.t("There is a " + e.descr);
 			}
 		}
 	}

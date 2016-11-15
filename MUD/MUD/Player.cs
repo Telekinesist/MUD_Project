@@ -9,7 +9,7 @@ namespace MUD
 	 [Serializable]
 	public static class Player
 	{
-		public static int room = 1; //Spawn
+		public static int room = 0; //Spawn
 		public static int HP = 100;
         public static int baseAtt;
         public static string armor = "shirt";
@@ -51,117 +51,24 @@ namespace MUD
 			C.l("- Damage", damage + " and " + weildability + " wieldability ");
 		}
 		
-		public static void move(string direction)
+		public static void move(string input)
 		{
-			bool success = false;
-			switch (direction[0])
+			bool fail = true;
+			foreach (Edge edge in Data.room().edges)
 			{
-				case 'n':
-					if (!(Data.getRoom(room).north == null))
-					{
-						C.t("You went north");
-						room = Data.getRoom(room).north.link.id;
-						success = true;
-					}
-					else
-					{
-						C.t("You can't go that way");
-					}
+				if (input.Contains(edge.tag))
+				{
+					room = edge.link.id;
+					BM.play("go");
+					fail = false;
 					break;
-
-				case 's':
-					if (!(Data.getRoom(room).south == null))
-					{
-						C.t("You went south");
-						room = Data.getRoom(room).south.link.id;
-						success = true;
-					}
-					else
-					{
-						C.t("You can't go that way");
-					}
-					break;
-				case 'e':
-					if (!(Data.getRoom(room).east == null))
-					{
-						C.t("You went east");
-						room = Data.getRoom(room).east.link.id;
-						success = true;
-					}
-					else
-					{
-						C.t("You can't go that way");
-					}
-					break;
-				case 'w':
-					if (!(Data.getRoom(room).west == null))
-					{
-						C.t("You went west");
-						room = Data.getRoom(room).west.link.id;
-						success = true;
-					}
-					else
-					{
-						C.t("You can't go that way");
-					}
-					break;
-
-
-				case 'u':
-					if (!(Data.getRoom(room).north == null))
-					{
-						C.t("You went north");
-						room = Data.getRoom(room).north.link.id;
-						success = true;
-					}
-					else
-					{
-						C.t("You can't go that way");
-					}
-					break;
-
-				case 'd':
-					if (!(Data.getRoom(room).south == null))
-					{
-						C.t("You went south");
-						room = Data.getRoom(room).south.link.id;
-						success = true;
-					}
-					else
-					{
-						C.t("You can't go that way");
-					}
-					break;
-				case 'r':
-					if (!(Data.getRoom(room).east == null))
-					{
-						C.t("You went east");
-						room = Data.getRoom(room).east.link.id;
-						success = true;
-					}
-					else
-					{
-						C.t("You can't go that way");
-					}
-					break;
-				case 'l':
-					if (!(Data.getRoom(room).west == null))
-					{
-						C.t("You went west");
-						room = Data.getRoom(room).west.link.id;
-						success = true;
-					}
-					else
-					{
-						C.t("You can't go that way");
-					}
-					break;
-
+				}
 			}
-			if (success)
+			if (fail)
 			{
-				BM.play("go");
+				C.t("You can't go that way.");
 			}
+
 		}
 	}
 }

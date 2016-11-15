@@ -27,14 +27,7 @@ namespace MUD
 				}
 				else if (Data.move.Any(input.Contains))
 				{
-					foreach (string direct in directions)
-					{
-						if (input.Contains(" " + direct))
-						{
-							Player.move(direct);
-							break;
-						}
-					}
+					Player.move(input);
 				}
 				else if (input.Contains("save"))
 				{
@@ -50,7 +43,11 @@ namespace MUD
 						Save.load();
 					}
 				}
-				if (haveChest && input.Equals("open chest"))
+				else if (input.Contains("look"))
+				{
+					Narrator.lookAround();
+				}
+				else if (haveChest && input.Contains("open chest"))
 				{
 					Narrator.descripeChestContent(Data.room().RoomChest);
 					Player.HP += Data.room().RoomChest.Hp;
@@ -223,7 +220,9 @@ namespace MUD
 			else if (Player.HP <= 0)
 			{
 				C.t("You have been slain by the " + enemy.b_WhatType + ". You collapse dead on the floor", 3000);
-				C.t("\t\t\t\tGAME OVER\n\n\n\n\n\n\n\n\n\n", 10000);
+				C.t("\t\t\t\tGAME OVER");
+				Console.Write("\n\n\n\n\n\n\n\n\n\n");
+				C.t("", 10000);
 				C.t("But this is the demo, so whatever. Here, have full HP");
 				Player.HP = 100;
 			}

@@ -17,6 +17,7 @@ namespace MUD
 			if (reset)
 			{
 				C.t("DIY you dumbnut");
+				C.t("(Sorry. I have bugs with this. Just restart and make a new game)");
 				//The world refuses to change after reset.
 			/*	PlayerCostomization.CreatePlayer();
 
