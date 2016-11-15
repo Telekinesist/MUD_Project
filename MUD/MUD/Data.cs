@@ -86,33 +86,45 @@ namespace MUD
 			Interface.directions.Add("l");
 		}
 
-		public static void addData()
+		public static void addData() // Alle chest der findes i spillet. 
 		{
-			chests.Add(new Chest(50, weapons.GetRandomWeapon(95,97,98,99,100)));
-            // stor sandsyglig hed for et junk og common våben
-			chests.Add(new Chest(0, weapons.GetRandomWeapon(50,97,98,99,100)));
+			chests.Add(new Chest(50, weapons.GetRandomWeapon(0,101,102,103,104)));
+            // stor sandsyglig hed for et junk våben
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(0,50,101,102,103)));
             // lige stor sandsyglighed for at få et junk og common våben
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(25, 97, 98, 99, 100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(0, 25, 101, 102, 103)));
             // størge sandsyglighed for at få et common våben men stadigvæk for junk. 
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(1,97,98,99,100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(-1,0,101,102,103)));
             // MEGET stor sandyslighed for common 
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(1, 50, 98, 99, 100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(-1, 0, 50, 101, 102)));
             // lige stor sandsyglighed fopr common og rare 
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(1, 25, 98, 99, 100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(-1, 0, 25, 101, 102)));
             // stor sandsyglighed for rare men stadigvæk sandsyglighed for common
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(1, 2, 98, 99, 100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(-2, -1, 0, 101, 102)));
             //MEGET STOR sandsyglighed for et rare våben 
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(1, 2, 50, 99, 100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(-2, -1, 0, 50, 101)));
             // lige stor sandsyglighed for rare og epic
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(1, 2, 25, 99, 100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(-2, -1, 0, 25, 101)));
             // stor sandsyglighed for epic men en elle sandsyglighed for rare. 
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(1, 2, 3, 99, 100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(-3, -2, -1, 0, 101)));
             // MEGET stor sandyslighed for epic 
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(1, 2, 3, 50, 100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(-3, -2, -1, 0, 50)));
             // lige stor sandsyglighed for epic og legendery.
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(1, 2, 3, 25, 100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(-3, -2, -1, 0, 25)));
             // stor sandsyglig hed for legedary men også en lille sandsyglig for legendary.
-            chests.Add(new Chest(0, weapons.GetRandomWeapon(1, 2, 2, 3, 100)));
+
+            chests.Add(new Chest(0, weapons.GetRandomWeapon(-4, -3, -2, -1, 0)));
             //MEGET STOR SANDSYGLIGHED FOR ET MEGA AWESOME VÅBEN. 
 
             chests.Add(new Chest(50, null));
@@ -122,10 +134,9 @@ namespace MUD
 			monsters.Add(new Monster(1, "Rat", 10, 2));
             monsters.Add(new Monster(2, "Bigger Rat", 15, 4));
 			monsters.Add(new Monster(8, "Spider", 64, 8));
-            monsters.Add(new Monster(13, "Bat", , ));
+            monsters.Add(new Monster(13, "Bat", 5,3 ));
+            monsters.Add(new Monster(75, "Ogre",175,13));
             monsters.Add(new Monster(100, "Dracon", 200, 15));
-             monsters.Add(new Monster(75, "Ogre",175,13));
-
             //Adds tracks and their paths
             BM.addTrack("door", @"\Door.mp3");
 			BM.addTrack("mon", @"\Monsters.mp3");
