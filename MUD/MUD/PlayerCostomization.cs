@@ -19,7 +19,7 @@ namespace MUD
             Console.WriteLine("Are you male, female, or inbetween?");
             string sex = Console.ReadLine();
 
-            Console.WriteLine("Choose your race between, orc, elf , dwarf, Or human");
+            Console.WriteLine("Choose your race between, orc, elf , dwarf or human");
 
             string race = Console.ReadLine();
             int Hp = 100;

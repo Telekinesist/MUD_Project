@@ -64,6 +64,7 @@ namespace MUD
 			attack.Add("hit");
 			attack.Add("kill");
 			attack.Add("slay");
+            attack.Add("slaughter");
 
 			dodge.Add("dodge");
 			dodge.Add("defend");
@@ -71,6 +72,7 @@ namespace MUD
 
 			think.Add("think");
 			think.Add("meditate");
+            think.Add("use braincells");
 
 			load.Add("load");
 			load.Add("continue");
@@ -80,7 +82,7 @@ namespace MUD
 
 
 			Interface.directions.Add("north");
-			Interface.directions.Add("ssouth");
+			Interface.directions.Add("south");
 			Interface.directions.Add("east");
 			Interface.directions.Add("west");
 			Interface.directions.Add("up");
@@ -133,9 +135,12 @@ namespace MUD
 			monsters.Add(new Monster(1, "Rat", 10, 2));
 			monsters.Add(new Monster(2, "Bigger Rat", 15, 4));
 			monsters.Add(new Monster(8, "Spider", 64, 8));
-			monsters.Add(new Monster(100, "Dracon", 200, 15));
+			monsters.Add(new Monster(100, "Dragon", 200, 15));
 			monsters.Add(new Monster(75, "Ogre", 175, 13));
 			monsters.Add(new Monster(1, "Grumpy monster", 10, 1, true));
+            monsters.Add(new Monster(20, "Hairy Cat", 35, 2));
+            monsters.Add(new Monster(43, "Nazi Übersturmbahn Führer", 100, 9));
+
 
 			//Adds tracks and their paths
 			BM.addTrack("door", @"\Door.mp3");
@@ -187,7 +192,7 @@ namespace MUD
             addRoom(311, null, monsters[1], "Fack, a friggin' mobster!");
 			addRoom(312, null, monsters[0], "This; Room - is on faiyeaaaaaaa.\n...Crap.");
 			addRoom(313, null, null, "Although you have always yearned to be cool, this cool might be a tad too much. The ice dripping from your nose is a nice touch tho!");
-			addRoom(314, null, null, "\"This room has furniture!\" you think to yourself after you have calmed down over the shock.\nYou almost couldn't see the furniture for the sheer ammounts of cats");
+			addRoom(314, null, null, "\"This room has furniture!\" you think to yourself after you have calmed down over the shock. You almost couldn't see the furniture for the sheer ammounts of cats");
 			addRoom(315, null, null, "You exit a vomatorium into a stadium. It seems to be the olympics.");
 			addRoom(316, null, monsters[1], "Oooh. This is a decently equipped weapon arsenal");
             addRoom(317, null, null, "You can feel the fresh air as you walk out into the light. You are finally free from the weird dungeon system");
