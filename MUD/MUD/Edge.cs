@@ -6,15 +6,21 @@ using System.Threading.Tasks;
 
 namespace MUD
 {
+	/**
+	 * Edge only contans a destination and a price. Price is currently not used
+	 */
+	 [Serializable]
 	public class Edge
 	{
 		public Room link;
-		public int distance;
+		public string descr;
+		public string tag;
 
-		public Edge(Room linkedRoom, int price = 0)
+		public Edge(Room linkedRoom, string directionTag, string description = null)
 		{
 			link = linkedRoom;
-			distance = price;
+			descr = description;
+			tag = directionTag;
 		}
 	}
 }

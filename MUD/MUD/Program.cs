@@ -1,32 +1,103 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MUD
 {
 	class Program
 	{
+		public static string input = "";
 		static void Main(string[] args)
 		{
-			Map world = new Map();
-			world.addRoom(1);
-			world.addRoom(2);
+			//Ads data
+			Data.addCommands();
+			Data.addData();
+			
+			
+			BM.play("door");
 
-			world.getRoomById(1).addEdge("north", new Edge(world.getRoomById(2)));
-			world.getRoomById(2).addEdge("south", new Edge(world.getRoomById(1)));
+
+			//Thread.Sleep(8400);
 
 
+			Console.WriteLine(
 
-			string input = Console.ReadLine().ToLower();
+@"▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████████████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██████████████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███████████▓▒▒""""""""""""""""╙▓███████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████▓╜""""╙▓█▓╖                ,║▓█████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█████████▓▒░      ▓███▓▒              ▓████Ñ╠███████▓▓▓▓▓▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███████▓╜▓█▓∩     `╙▓██@             ╓▓█▓╜'  '""╙▓███████▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓███Ñ╙""  ▓█▓Ç.      ▓███▓@  ,,,,,. ]▓█▓╜`        `╙▓█████▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓████▓╢▒      ▓███▓@    ,,▒▓██╬╓▓█████▓@║▓█▌       ,,,,,▓█████▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓▓▓██████▓▒,,   `╙▓████╣╓▓██████████▓╢▓██████▓,,,,,╠▓█████▓Ñ▓███▓▓▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓█████████████▓   `▒▓██████▓╜╙▒▒╙╙╙╙▓█▓Ñ╙╙║████████▓▓╙╙╙╙╙' ╟█████▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓████▓╜╙╙╙╙╟████▓,╫████▓╜╙╙' ╟▓▓@   ▓█▓∩   '╙▓████▓▒        `╙║███▓▓▓▓▓▓
+▓▓▓▓▓▓▓▓▓████▌       ╙╙╙▓████▓╙      ╟██╣   ▓█▓∩     '║▓███▓@  ,▓███▓@]▓████▓▓▓▓
+▓▓▓▓▓▓▓██████▌,        ,▓████╬     ╫████╣   ▓█▓∩     ▓█▓╜▓████████████▓▓╙▓██████
+▓▓▓▓▓▓█████▓╙▓█████▓@╓▓████▀╫▓█╣   ▓██▓╙    ▓█▓∩    ]▓█▌░╫████▓╜╙╙╙╙╙╙╙   ╙▓████
+▓▓▓▓▓▓█████▌  ╙╙╙▓██████▓╜  ╟██▌   ▓██▒     ▓█▓∩    ]▓█▌░ ╙▓██▓            ▓████
+▓▓▓▓▓▓█████▌      ╙╜╜║██▌   ╟██▌   ▓██▒     ▓█▓∩    ]▓█▌░  ╠████████████████████
+▓▓▓▓▓▓█████▌       ]▓███▓   ╟██▌   ▓███▓▒   ▓█▓▒    ]▓█▌░  ╠██▓╜╜╜╜╜╜╜╜╜╜╜╜▓████
+▓▓▓▓▓▓█████▓       ╠██▓╜    ╟██▌   '╜▓██╣   ▓███▓▒  ]▓█▌░  ╠▓███▓          ▓████
+▓▓▓▓▓▓████████████████▌     ╟██▌     ▐██╣    ╜▓██╬  ]▓█▌░   ╙╢██▌           ╜▓██
+▓▓███████▓╜╜╜╜╜╜╜╜╜▓██▌     ╟██▌     ▐██╣     ▓██╬  ]▓█▌░    ]▓█▌            ▐██
+▓▓█████▀╜          ╠██▌   ╫▓███╣     ▐██╣     ▓██╬  ]▓█▓░    ]▓█▌            ╟██
+▓▓████▓∩           ╠██▌   ▓██▓╜'     ▐██╣     ▓██╬  ]▓███▓┐  ]▓█████████████████
+▓▓████▓∩         ╟▓███▌   ▓██╬       ▐██╣     ▓██╬   ╙╙▓██▒  ]▓████▀╜╜╜╜╜╜╜╜╜▓██
+▓▓████▓▒         ▐██▓╜    ▓██╬       ▐██╣     ▓██╬     ▓██▒   ╙╨▓█▓∩         ▐██
+▓▓██████████████████╣     ▓██╬       ▐██╣     ▓██╬     ▓██▒     ▓█▓[       ╫▓███
+███████▀╜╜╜╜╜╜╜╜╜▓██╣     ▓██╬       ▐██╣     ▓██╬     ▓██▒     ▓███████████████
+██▓╜╜╜╜          ▐██╣     ▓██╬       ▐██╣     ▓██╬     ▓██▒     ▓██▀╜╜╜╜╜╜╜╜╜▓██
+▓╣▒              ▐██╣     ▓██╬       ▐██╣     ▓██╬     ▓██▒     ▓█▓∩         ▐██");
+
+			C.t("Press Enter");
+			Console.ReadLine();
+
+
+			//Start menu
+			Console.WriteLine("Start new game, og Continue prevois saved game?");
+			bool choosing = true;
+			while (choosing)
+			{
+
+				input = Console.ReadLine().ToLower();
+				if (Data.load.Any(input.Contains))
+				{
+					choosing = false;
+					Save.load();
+					BM.stop("door");
+				}
+				else if (Data.newGame.Any(input.Contains))
+				{
+					Data.createWorld();
+					PlayerCostomization.CreatePlayer();
+					choosing = false;
+					BM.stop("door");
+				}
+				else if (input.Equals("skip"))
+				{
+					choosing = false;
+					Data.createWorld();
+					BM.stop("door");
+
+				}
+				else if (input.Equals("exit"))
+				{
+					choosing = false;
+				}
+				else
+				{
+					C.t("Sorry, I don't understand that");
+				}
+			}
+
+			
+			//While loop narrates the story, takes player input, and handles it
 			while (!(input.Equals("exit")))
 			{
-				if (input.Contains("tp"))
-				{
-					Player.inRoom = int.Parse(input.Substring(2));
-				}
+				Narrator.enterRoom(Data.room());
 				input = Console.ReadLine().ToLower();
+				Interface.playerCommand(input);
 			}
 		}
 	}

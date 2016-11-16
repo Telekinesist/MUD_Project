@@ -1,39 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 
 namespace MUD
 {
+	/**
+	 * Contans the world
+	 */
+	 [Serializable]
 	public class Map
 	{
-		public List<Room> Rooms;
-		int numOfRooms = -1;
+		//A dictionary is used for fast access to the rooms
+		public Dictionary<int, Room> Rooms = new Dictionary<int, Room>();
 
 		public Map()
 		{
-			Rooms = new List<Room>();
+
 		}
 
-		public void addRoom(int roomId)
-		{
-			Room room = new Room(roomId);
-			Rooms.Add(room);
-			numOfRooms++;
+		public void addRoom(int roomId, Chest b = null, Monster c = null, string description = "")
+        {
+			Monster mon = null;
+			Chest che = null;
+			if (c != null)
+			{
+				mon = new Monster(c.a_level, c.b_WhatType, c.c_MostersHP, c.d_MostersAtt, c.isSleeping);
+			}
+			if (b != null)
+			{
+				che = new Chest(b.Hp, b.weapon);
+			}
+			Room room = new Room(roomId, description, b, c);
+			Rooms.Add(roomId, room);
 		}
 
 		public Room getRoomById(int roomID)
 		{
-			for (int i = numOfRooms; i >= 0; i--)
-			{
-				if (Rooms[i].id.Equals(roomID))
-				{
-					return Rooms[i];
-				}
-			}
-			Console.WriteLine("DEBUG: Did not find room with ID " + roomID);
-			return null;
+			return Rooms[roomID];
 		}
+
 	}
 }
