@@ -61,6 +61,8 @@ namespace MUD
 			move.Add("move");
 			move.Add("travel");
 			move.Add("traverse");
+			move.Add("open");
+			move.Add("pass");
 
 			attack.Add("attack");
 			attack.Add("fight");
