@@ -28,9 +28,9 @@ namespace MUD
 
             Weapon c1 = new Weapon(8, "Rusten Spoon", "It's rusten but can maybe kill");
             Weapon c2 = new Weapon(10, "Rusten Fork", "It's rusten, but can kill");
-            Weapon c3 = new Weapon(13, "Rusten Spork", "It was just to feed babys but now it can by just to KILL");
-            Weapon c4 = new Weapon(15, "Rusten Dagget","");
-            Weapon c5 = new Weapon(18, "Rusten Sword","");
+            Weapon c3 = new Weapon(13, "Rusten Spork", "It was just to feed babys, but now it can be just to KILL");
+            Weapon c4 = new Weapon(15, "Rusten Dagget", "An one thousand years old Dagget");
+            Weapon c5 = new Weapon(18, "Rusten Sword", "A two thousand five hundred years old Sword");
             //alle common våben der laves i spillet 
 
             Weapon r1 = new Weapon(20,"test1","");
@@ -71,7 +71,7 @@ namespace MUD
 
         public Weapon GetRandomWeapon(int JunkChance, int CommonChance, int RareChance, int EpicChance, int LegendaryChance)
         {
-           
+            
             int r = rand.Next(0, 101);
             if (r <= JunkChance)
             {
@@ -97,11 +97,16 @@ namespace MUD
                 int i = Epic.Next(0, EpicWeapons.Count);
                 return EpicWeapons[i];
             }
-            else 
+            else if (r > EpicChance && r <= LegendaryChance)
             {
                 Random Legendary = new Random();
                 int i = Legendary.Next(0, LegendaryWeapons.Count);
                 return LegendaryWeapons[i];
+            }
+            else
+            {
+                C.d("Der er gået noget galt, du har ikke fået noget våben");
+                return null;
             }
          
         }

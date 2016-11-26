@@ -53,6 +53,14 @@ namespace MUD
 					Player.HP += Data.room().RoomChest.Hp;
 					Data.room().RoomChest.unopened = false;
 				}
+				else
+				{
+					Data.tookAction = false;
+				}
+			}
+			else
+			{
+				Data.tookAction = false;
 			}
 		}
 

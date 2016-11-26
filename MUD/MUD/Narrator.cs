@@ -20,14 +20,7 @@ namespace MUD
 			{
 				if (room.RoomMonster.isSleeping)
 				{
-					if (Data.makeNoise)
-					{
-						C.t("You have awoken the " + room.RoomMonster.b_WhatType.ToLower() + " from its sleep. The " + room.RoomMonster.b_WhatType.ToLower() + " is pissed.");
-					}
-					else
-					{
-						C.t("You freeze as you see a " + room.RoomMonster.b_WhatType.ToLower() + " sleeping. Better be carefull...");
-					}
+					C.t("You freeze as you see a " + room.RoomMonster.b_WhatType.ToLower() + " sleeping. Better be carefull...");
 				}
 				else
 				{
