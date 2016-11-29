@@ -15,12 +15,14 @@ namespace MUD
 		public Room link;
 		public string descr;
 		public string tag;
+        public char retning;
 
-		public Edge(Room linkedRoom, string directionTag, string description = null)
+		public Edge(Room linkedRoom, string directionTag, string description = null, char retning = 'w')
 		{
 			link = linkedRoom;
 			descr = description;
 			tag = directionTag;
+            this.retning = retning;  
 		}
 	}
 }

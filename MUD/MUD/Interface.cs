@@ -15,9 +15,9 @@ namespace MUD
 		//Handles user input
 		public static void playerCommand(string input)
 		{
-			if (input.Length > 1)
+			if (input.Length > 0)
 			{
-				if (input.Substring(0, 2).Equals("tp"))
+				if (input.Length > 2 && input.Substring(0, 2).Equals("tp"))
 				{
 					Player.room = int.Parse(input.Substring(3));
 				}
@@ -29,6 +29,11 @@ namespace MUD
 				{
 					Player.move(input);
 				}
+                else if (Data.WASD.Any(input.Contains))
+                {
+                    Console.WriteLine("test om input virker");
+                    Player.WASD(input);
+                }
 				else if (input.Contains("save"))
 				{
 					if (accept("\n\n\nAre you SURE you want to save? This will override previous saved data.\nYes/No", "Game saved", "Save not commenced"))

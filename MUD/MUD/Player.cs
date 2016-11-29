@@ -18,7 +18,7 @@ namespace MUD
         public static int weapDamg;
         public static string weapon = "fists";
 		public static float weildability = 1;
-		public static int damage = 2;
+		public static int damage = 10;
 		public static float inconsitency = 0.2f;
         public static string name = "default";
         public static float age = 0f;
@@ -70,5 +70,66 @@ namespace MUD
 			}
 
 		}
+        public static void WASD (string input)
+        {
+            bool fail = true;
+            switch (input[0])
+            {
+                case 'w':
+                    foreach (Edge edge in Data.room().edges)
+                    {
+                        edge.retning.Equals(input[0]);
+                        if (edge.retning.Equals(input[0]))
+                        {
+                            room = edge.link.id;
+                            fail = false;
+                            break;
+                        }
+                    }
+                        break;
+                case 's':
+                    foreach (Edge edge in Data.room().edges)
+                    {
+                        edge.retning.Equals(input[0]);
+                        if (edge.retning.Equals(input[0]))
+                        {
+                            room = edge.link.id;
+                            fail = false;
+                            break;
+                        }
+                    }
+                    break;
+                case 'a':
+                    foreach (Edge edge in Data.room().edges)
+                    {
+                        edge.retning.Equals(input[0]);
+                        if (edge.retning.Equals(input[0]))
+                        {
+                            room = edge.link.id;
+                            fail = false;
+                            break;
+                        }
+                    }
+                    break;
+                case 'd':
+                    foreach (Edge edge in Data.room().edges)
+                    {
+                        edge.retning.Equals(input[0]);
+                        if (edge.retning.Equals(input[0]))
+                        {
+                            room = edge.link.id;
+                            fail = false;
+                            break;
+                        }
+                    }
+                    break;
+
+                    
+            }
+            if (fail)
+            {
+                C.t("you can't go that way");
+            }
+        }
 	}
 }

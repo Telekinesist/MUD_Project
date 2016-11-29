@@ -33,9 +33,9 @@ namespace MUD
 		}
 
 		//Adds an edge for the directions north, south, east or west.
-		public void addEdge(Room linkRoom, string directionTag, string description = "")
+		public void addEdge(Room linkRoom, string directionTag, string description = "", char retning ='w')
 		{
-			edges.Add(new Edge(linkRoom, directionTag, description));
+			edges.Add(new Edge(linkRoom, directionTag, description,retning));
 		}
 	}
 }

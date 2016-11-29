@@ -25,10 +25,26 @@ namespace MUD
 			world.addRoom(roomId, b, c, description);
 		}
 		//Links two rooms together
-		public static void addEdge(int room1, int room2, string directionTag, string description = "")
+		public static void addEdge(int room1, int room2, string directionTag, string description = "", char retning = 'w' )
 		{
-			world.Rooms[room1].addEdge(world.Rooms[room2], directionTag, description);
-			world.Rooms[room2].addEdge(world.Rooms[room1], directionTag, description);
+			world.Rooms[room1].addEdge(world.Rooms[room2], directionTag, description, retning);
+            switch (retning)
+            {
+                case 'w':
+                    world.Rooms[room2].addEdge(world.Rooms[room1], directionTag, description, 's');
+                    break;
+                case 's':
+                    world.Rooms[room2].addEdge(world.Rooms[room1], directionTag, description, 'w');
+                    break;
+                case 'a':
+                    world.Rooms[room2].addEdge(world.Rooms[room1], directionTag, description, 'd');
+                    break;
+                case 'd':
+                    world.Rooms[room2].addEdge(world.Rooms[room1], directionTag, description, 's');
+                    break;
+
+            }
+			
 		}
 
 		public static DiffWeapons weapons = new DiffWeapons();
@@ -47,10 +63,16 @@ namespace MUD
 		public static List<string> think = new List<string>();
 		public static List<string> load = new List<string>();
 		public static List<string> newGame = new List<string>();
+        public static List<string> WASD = new List<string>(); 
 
 		public static void addCommands()
 		{
-			showInv.Add("inv");
+            WASD.Add("w");
+            WASD.Add("a");
+            WASD.Add("s");
+            WASD.Add("d");
+
+            showInv.Add("inv");
 			showInv.Add("inventory");
 			showInv.Add("stat");
 
@@ -220,9 +242,9 @@ namespace MUD
 			addRoom(330, null, monsters[0], "It REALLY smells in here");
             
 
-			addEdge(0, 300, "old", "old door");
+			addEdge(0, 300, "old", "old door",'w');
             //Custom edge
-            addEdge(300, 311, "mobster", "leads to something");
+            addEdge(300, 311, "mobster", "leads to something",'s');
             addEdge(311, 312, "red", "very red handle");
             addEdge(312, 313, "cool", "very cold handle");
             addEdge(313, 314, "cat", "miawing door");
@@ -235,13 +257,13 @@ namespace MUD
             addEdge(324, 325, "gold", "door with golden handle");
             addEdge(325, 326, "normal", "strikingly normal door");
 			world.getRoomById(300).edges[0] = new Edge(world.getRoomById(0), "back", "back to the room you woke up in");
-			addEdge(0, 200, "new", "brand new door");
+			addEdge(0, 200, "new", "brand new door",'d');
             addEdge(200, 201, "shines", "shiny keyhole");
             addEdge(201, 202, "music", "sound comes from the door");
             addEdge(202, 203, "fabby", "dildo as handle");
             addEdge(203, 204, "regular", "regular looking door");
             addEdge(204, 250, "boss", "door with BOSS written on it");
-			addEdge(0, 100, "rust", "rusted old door. This one probably makes a loud noise if you try to open it");
+			addEdge(0, 100, "rust", "rusted old door. This one probably makes a loud noise if you try to open it",'a');
             addEdge(100, 101, "funny", "funny looking door");
             addEdge(101, 112, "book", "booklike door");
 		}
