@@ -11,7 +11,6 @@ namespace MUD
 		//Runs before player gives input. Descripes the room. Starts battle if room contains monster
 		public static void enterRoom(Room room)
 		{
-			C.t(room.descrp, 1000);
 			if (room.customForce != null)
 			{
 				Force.story(room.customForce);
@@ -88,7 +87,7 @@ namespace MUD
 			C.t("There are " + Data.room().edges.Count + " doors in this room");
 			foreach (Edge e in Data.room().edges)
 			{
-				C.t("There is a " + e.descr + " Type " + e);
+				C.t("There is a " + e.descr + "  |  Type "/*e.retning*/);
 			}
 		}
 	}

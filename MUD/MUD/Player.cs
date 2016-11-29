@@ -61,6 +61,7 @@ namespace MUD
 					room = edge.link.id;
 					BM.play("go");
 					fail = false;
+					C.t(Data.room().descrp, 1000);
 					break;
 				}
 			}

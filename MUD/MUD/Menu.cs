@@ -239,12 +239,18 @@ To pass through a door, write something about going or moving and the door you w
 	Example: I would, if not for too much trouble of course, request to traverse through the shiny door over there thank you very much!
 	(Assuming that there is a shiny door)
 Or you could just write 'go shiny' and be done with it.
-You can also type w, a, s or d to move. You will be told which direction is which.
+You can also type 'w', 'a', 's' or 'd' to move. You will be told which direction is which.
 
 If you encounter a chest, you can open it by typing 'open chest'. You can leave the content of the chest if you dislike it, but you will not be able to find it again!
 Some rooms contains monsters. Most of which you have to fight.
 You will have to 'attack' or 'kill' them untill they are dead. (Obviosly, who would like to play a game where you don't have to kill the monsters?)
-If you feel sorry for the monsters, don't be. They are the enemy, and smell rather terrible after all.");
+If you feel sorry for the monsters, don't be. They are the enemy, and smell rather terrible after all.
+
+You can almost always save by typing 'save'. You can almost alwas also 'load' your save.
+Use it as you like, but be carefull not ending up in a sticky situration.
+
+
+There might be (defenetely are) other commands. Try stuff!");
 				Console.WriteLine("\nPress enter to go back to the menu");
 				Console.ReadLine();
 				Console.Clear();
