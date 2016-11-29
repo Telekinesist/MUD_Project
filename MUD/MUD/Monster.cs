@@ -17,7 +17,7 @@ namespace MUD
         public Monster(int Level, string WhatTypeMonster,int MostersHp, int MonstersAtt, bool sleeping = false)
 
         {
-            a_level = Level;
+            a_level = Level; 
             b_WhatType = WhatTypeMonster;
             c_MostersHP = MostersHp;
             d_MostersAtt = MonstersAtt;

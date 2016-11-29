@@ -10,10 +10,10 @@ namespace MUD
     {
         public static void CreatePlayer()
         {
-            Console.WriteLine("what is your name");
+            Console.WriteLine("what is your name?");
             string name = Console.ReadLine();
 
-            Console.WriteLine("what is your age");
+            Console.WriteLine("what is your age?");
             bool isReading = true;
             float age = 19;
             while (isReading)
@@ -25,37 +25,37 @@ namespace MUD
                 }
                 catch
                 {
-                    Console.WriteLine("Error, plece type a number as your age, else are you a FUC**** basted, and i will find you, and kill you !!! ");
+                    Console.WriteLine("Error, please type a number as your age, else you are a FUC**** bastard, and i will find you, and kill you !!! ");
                 }
             }
 
            
 
-            Console.WriteLine("choose you sex betrine a male or female");
+            Console.WriteLine("choose your sex between a male or female");
             string sex = Console.ReadLine();
 
-            Console.WriteLine("choose your race betrine, orc, elf , dwarf, Or human");
+            Console.WriteLine("choose your race between orc, elf , dwarf, Or human");
 
             string race = Console.ReadLine();
             int Hp = 100;
-            int att = 2;
+            int att = 10;
             switch (race.ToLower())
             {
                 case "orc":
                    Hp = 85;
-                   att = 3;
+                   att = 10;
                     break;
                 case "elf":
                     Hp = 70;
-                    att = 5;
+                    att = 10;
                     break;
                 case "dwarf":
                     Hp = 125;
-                    att = 1;
+                    att = 10;
                     break;
                 case "human":
                     Hp = 100;
-                    att = 2;
+                    att = 10;
                     break;
                 default:
                     break;
