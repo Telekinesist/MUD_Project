@@ -84,24 +84,6 @@ namespace MUD
 
 			newGame.Add("new game");
 			newGame.Add("new");
-
-
-			Interface.directions.Add("north");
-			Interface.directions.Add("south");
-			Interface.directions.Add("east");
-			Interface.directions.Add("west");
-			Interface.directions.Add("up");
-			Interface.directions.Add("down");
-			Interface.directions.Add("right");
-			Interface.directions.Add("left");
-			Interface.directions.Add("n");
-			Interface.directions.Add("s");
-			Interface.directions.Add("e");
-			Interface.directions.Add("w");
-			Interface.directions.Add("u");
-			Interface.directions.Add("d");
-			Interface.directions.Add("r");
-			Interface.directions.Add("l");
 		}
 
 		public static void addData()
@@ -151,6 +133,7 @@ namespace MUD
 			BM.addTrack("door", @"\Door.mp3");
 			BM.addTrack("mon", @"\Monsters.mp3");
 			BM.addTrack("spid", @"\theme.mp3");
+			BM.addTrack("instructions", @"\comm_shipnode.mp3");
 
 			BM.addSound("go", @"\OpenClose.wav");
 			BM.addSound("heal", @"\Heal.wav");

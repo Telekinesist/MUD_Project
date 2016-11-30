@@ -29,7 +29,7 @@ namespace MUD
 			{
 				che = new Chest(b.Hp, b.weapon);
 			}
-			Room room = new Room(roomId, description, b, c);
+			Room room = new Room(roomId, description, che, mon);
 			Rooms.Add(roomId, room);
 		}
 

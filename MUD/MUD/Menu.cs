@@ -9,7 +9,6 @@ namespace MUD
 {
 	static class Menu
 	{
-		static string input;
 		static byte select = 1;
 		public static void titleMenu()
 		{
@@ -213,11 +212,13 @@ namespace MUD
 			if (select.Equals(1))
 			{
 				Save.load();
+				Console.Clear();
 				BM.stop("door");
 			}
 			else if (select.Equals(2))
 			{
 				Data.createWorld();
+				Console.Clear();
 				PlayerCostomization.CreatePlayer();
 				BM.stop("door");
 			}
@@ -225,11 +226,14 @@ namespace MUD
 			else if (select.Equals(255))
 			{
 				Data.createWorld();
+				Console.Clear();
 				C.d("Begin debug session");
 				BM.stop("door");
 			}
 			else if (select.Equals(3))
 			{
+				BM.stop("door");
+				BM.play("instructions");
 				Console.Clear();
 				Console.WriteLine("\t\tHELP MENU");
 				Console.WriteLine(@"
@@ -268,6 +272,8 @@ PS: I didn't infect this with malware.");
 				Console.WriteLine("\nPress enter to go back to the menu");
 				Console.ReadLine();
 				Console.Clear();
+				BM.stop("instructions");
+				BM.contin("door");
 				goto beginMenu;
 				
 			}

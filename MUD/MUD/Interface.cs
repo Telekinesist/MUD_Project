@@ -10,7 +10,6 @@ namespace MUD
 	*/
 	static class Interface
 	{
-		public static List<string> directions = new List<string>();
 		public static bool haveChest = false;
 		//Handles user input
 		public static void playerCommand(string input)
