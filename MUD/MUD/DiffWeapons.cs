@@ -19,39 +19,39 @@ namespace MUD
 
         public DiffWeapons()
         {
-            Weapon j1 = new Weapon(1, "Plasik Spoon", "Good luck, you need it");
-            Weapon j2 = new Weapon(2, "Plasik Fork", "You can try, just try to kill anything");
-            Weapon j3 = new Weapon(3, "Plasik Spork ", "Just try to kill anything");
-            Weapon j4 = new Weapon(4, "Small toy Dagget  ", "Roleplay weapon");
+            Weapon j1 = new Weapon(1, "Plastik Spoon", "Good luck, you need it");
+            Weapon j2 = new Weapon(2, "Plasitk Fork", "You can try, just try to kill anything");
+            Weapon j3 = new Weapon(3, "Plastik Spork ", "Just try to kill anything");
+            Weapon j4 = new Weapon(4, "Small toy Daggert  ", "Roleplay weapon");
             Weapon j5 = new Weapon(5, "Toy Sword", "Roleplay weapon" );
             //alle junk våben der er laves i spille
 
             Weapon c1 = new Weapon(8, "Rusten Spoon", "It's rusten but can maybe kill");
             Weapon c2 = new Weapon(10, "Rusten Fork", "It's rusten, but can kill");
-            Weapon c3 = new Weapon(13, "Rusten Spork", "It was just to feed babys but now it can by just to KILL");
-            Weapon c4 = new Weapon(15, "Rusten Dagget","");
+            Weapon c3 = new Weapon(13, "Rusten Spork", "It was just to feed babys but now it can be jused to KILL");
+            Weapon c4 = new Weapon(15, "Rusten Daggert","If you are lucky enough, you'll be able to give your opponent metalpoisoning");
             Weapon c5 = new Weapon(18, "Rusten Sword","");
             //alle common våben der laves i spillet 
 
-            Weapon r1 = new Weapon(20,"test1","");
-            Weapon r2 = new Weapon(23,"test2","");
-            Weapon r3 = new Weapon(26,"test3","");
-            Weapon r4 = new Weapon(30,"test4","");
-            Weapon r5 = new Weapon(35,"test5","");
+            Weapon r1 = new Weapon(20, "Broad sword", "A sizeable sword with a broad blade");
+            Weapon r2 = new Weapon(23,"Warhammer","A big hammer designed for brawling");
+            Weapon r3 = new Weapon(26,"Crossbow","A simple, yet effective crossbow");
+            Weapon r4 = new Weapon(30,"Katana","A japanese sword reknowned for its extreme sharpness. Used  by samurai");
+            Weapon r5 = new Weapon(35,"Luger pistol","The iconic pistol used by the Wehrmacht");
             //alle rare våben der laves i spillet
 
-            Weapon e1 = new Weapon(40, "test6", "");
-            Weapon e2 = new Weapon(45, "test7", "");
-            Weapon e3 = new Weapon(50, "test8", "");
-            Weapon e4 = new Weapon(55, "test9", "");
-            Weapon e5 = new Weapon(60, "test10", "");
+            Weapon e1 = new Weapon(40, "Andúril", "The mighty sword worn and used by Aragorn, son of Arathorn.");
+            Weapon e2 = new Weapon(45, "Excalibur", "The sword of swords, , put in the stone by Merlin, pulled out and used by King Arthur of the Britons");
+            Weapon e3 = new Weapon(50, "Mjölnir", "The hammer that always returns to the thrower. Used by the mighty god of Asgárd, Thor");
+            Weapon e4 = new Weapon(55, "Indy's whip", "Well… It’s a whip. BUT, this one was used by Indiana Jones!");
+            Weapon e5 = new Weapon(60, "DL-44 Heavy Blaster Pistol", "Solo shot first. ‘Nuff said");
             //alle epic våben der laves i spillet
 
-            Weapon l1 = new Weapon(70, "test11", "");
-            Weapon l2 = new Weapon(80, "test12", "");
-            Weapon l3 = new Weapon(90, "test13", "");
-            Weapon l4 = new Weapon(100, "test14", "");
-            Weapon l5 = new Weapon(250, "test15", "");
+            Weapon l1 = new Weapon(70, "Thunder hammer of the Blood Ravens", "The mightiest of hammers, harnessing kinetic energy to unleash fatal blows to anything in its way");
+            Weapon l2 = new Weapon(80, "Fat Man launcher", "You have heard of the A-Bomb? This “gun” launches one");
+            Weapon l3 = new Weapon(90, "Handheld trebuchet", "Miniature version of the awesome siege weapon of old");
+            Weapon l4 = new Weapon(100, "Double bladed lightsaber", "You know what this does");
+            Weapon l5 = new Weapon(250, "Portal Gun", "Shwoop!");
 
             JunkWeapons.Add(j1);                    CommonWeapons.Add(c1);                    RareWeapons.Add(r1);
             JunkWeapons.Add(j2);                    CommonWeapons.Add(c2);                    RareWeapons.Add(r2);

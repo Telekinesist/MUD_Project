@@ -55,7 +55,7 @@ namespace MUD
 
 
 			//Start menu
-			Console.WriteLine("Start new game, og Continue prevois saved game?");
+			Console.WriteLine("Start new game, og Continue previous saved game?");
 			bool choosing = true;
 			while (choosing)
 			{

@@ -177,7 +177,8 @@ namespace MUD
             addRoom(101, null, monsters[1], "A new monster? Seriously?");
             addRoom(112, chests[1], null, "You look around, stunned. So many books!!!");
             addRoom(113, null, null, "You grow a pair of glasses and a lot of zits. You begin to slouch and correct everyone who isn't completely right");
-            addRoom(114, chests[2], null, "You walk out into the light, gretted by a pair of fellow geeks. They point you to their D&D van. You are finally free. I guess?");
+            addRoom(114, chests[2], null, "");
+            getRoom(114).customEnd = "NerdEnd";
             addRoom(121, chests[1], monsters[1], "Your hand slowly begins to ascend into the wellknown salute, and on your arms grows a red armband with the forbidden insignia. Heil!");
             addRoom(122, chests[1], null, "Disgusted by the last rooms experience, you look around to see... Weapons? A whole lot of weapons? Sweet!");
             addRoom(130, null, null, "The door slams behind you, and the room goes dark. Uanble to re-open the door, you accept your fate... An eternity in lockdown."); 
@@ -190,7 +191,7 @@ namespace MUD
             addRoom(251, chests[1], null, "You hear a familiar buzzing noise coming from that weird apperatus over there. Slowly you step into it and SWOOP! You appear to have teleported to freedom.");
 			addRoom(300, null, null, "You press your whole weight against the door, and it makes a loud shriek as it slowly opens. You look into the next room, only to face another grim looking creature, this time fully awake. As if that wasn’t enough, you hear that the slumbering creature behind you is not slumbering any more. It starts to run against you, and you cry out loud with closed eyes as it leaps against you. To your big surprise, the creature doesn’t attack you, but rather the creature in the new room. Baffled, you watch them tear at each other, until the the formerly sleeping one stands victorious. You watch in silence as it walks back, and lies down to continue you sleeping. As you turn you back to it to continue forward, it seems as though it blinks at you.");
             addRoom(311, null, monsters[1], "Fack, a friggin' mobster!");
-			addRoom(312, null, monsters[0], "This; Room - is on faiyeaaaaaaa.\n...Crap.");
+			addRoom(312, null, null, "This; Room - is on faiyeaaaaaaa....Crap.");
 			addRoom(313, null, null, "Although you have always yearned to be cool, this cool might be a tad too much. The ice dripping from your nose is a nice touch tho!");
 			addRoom(314, null, null, "\"This room has furniture!\" you think to yourself after you have calmed down over the shock. You almost couldn't see the furniture for the sheer ammounts of cats");
 			addRoom(315, null, null, "You exit a vomatorium into a stadium. It seems to be the olympics.");
@@ -233,7 +234,7 @@ namespace MUD
             addEdge(100, 101, "funny", "funny looking door");
             addEdge(101, 112, "book", "booklike door");
             addEdge(112, 113, "grimy", "grimy doorhandle");
-            addEdge(113, 114, "D&D", "door with D&D logo");
+            getRoom(113).addEdge(getRoom(114), "D&", "door with D&D logo");
             addEdge(113, 121, "nazi", "red door with swastika");
             addEdge(121, 122, "gun", "gunhandle on the door");
             addEdge(122, 130, "bars", "door with bars");

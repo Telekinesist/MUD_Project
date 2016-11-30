@@ -37,7 +37,7 @@ namespace MUD
 						else if (input.Contains("save"))
 						{
 							C.t("You DIED. Moron");
-							C.t("Why would you wan't to save? So you could reload the death screen?!?!");
+							C.t("Why would you want to save? So you could reload the death screen?!?!");
 							C.t("Idiot");
 						}
 						else
@@ -47,8 +47,44 @@ namespace MUD
 					}
 					
 					break;
-				default:
-					C.d("This room is supposed to have a custom action, but the action specified does not exist");
+
+                case "NerdEnd":
+                    C.t("You walk out into the light, gretted by a pair of fellow geeks.",200);
+                    C.t("They point you to their D & D van.",200);
+                    C.t("You are finally free.",100);
+                    C.t("I guess?",1000);
+                    C.t("THE END (or something)");
+                    C.t("", 1200);
+                    C.t("Replay?");
+                    while (true)
+                    {
+                        input = Console.ReadLine().ToLower();
+                        if (input.Contains("replay"))
+                        {
+                             
+                        }
+
+                        else if (input.Contains("reload"))
+                        {
+                            C.t("Loafing last save game");
+                            Save.load();
+                            break;
+                        }
+
+                        else if (input.Contains("exit"))
+                        {
+                            Environment.Exit(0);
+                        }
+
+                        
+                    }
+
+                    break;
+                    
+
+                default:
+
+                    C.d("This room is supposed to have a custom action, but the action specified does not exist");
 					break;
 			}
 		}
