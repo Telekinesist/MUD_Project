@@ -15,6 +15,10 @@ namespace MUD
 		//Handles user input
 		public static void playerCommand(string input)
 		{
+			//Redefines it as true each time. If no action is taken, it is redefined as false
+			Data.tookAction = true;
+
+
 			if (input.Length > 1)
 			{
 				if (input.Substring(0, 2).Equals("tp"))
@@ -24,6 +28,20 @@ namespace MUD
 				else if (Data.showInv.Any(input.Contains))
 				{
 					Player.getStats();
+				}
+				else if (input.Contains("open chest"))
+				{
+					if (haveChest)
+					{
+						Narrator.descripeChestContent(Data.room().RoomChest);
+						Player.HP += Data.room().RoomChest.Hp;
+						Data.room().RoomChest.unopened = false;
+					}
+					else
+					{
+						C.t("What chest?");
+					}
+
 				}
 				else if (Data.move.Any(input.Contains))
 				{
@@ -47,12 +65,7 @@ namespace MUD
 				{
 					Narrator.lookAround();
 				}
-				else if (haveChest && input.Contains("open chest"))
-				{
-					Narrator.descripeChestContent(Data.room().RoomChest);
-					Player.HP += Data.room().RoomChest.Hp;
-					Data.room().RoomChest.unopened = false;
-				}
+				
 				else
 				{
 					Data.tookAction = false;
