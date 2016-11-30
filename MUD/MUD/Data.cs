@@ -181,7 +181,7 @@ namespace MUD
             getRoom(114).customEnd = "NerdEnd";
             addRoom(121, chests[1], monsters[1], "Your hand slowly begins to ascend into the wellknown salute, and on your arms grows a red armband with the forbidden insignia. Heil!");
             addRoom(122, chests[1], null, "Disgusted by the last rooms experience, you look around to see... Weapons? A whole lot of weapons? Sweet!");
-            addRoom(130, null, null, "The door slams behind you, and the room goes dark. Uanble to re-open the door, you accept your fate... An eternity in lockdown."); 
+            addRoom(130, null, null, ""); 
 			addRoom(200, null, null, "You have always seen things from the bright side, however, this is really just too much brightness");
             addRoom(201, null, monsters[1], "Oh snap, a snappy monster!");
             addRoom(202, null, null, "You are brought back to the eighties through the might of Disco! Saaay.... That's actually kind of a catchy rythm");
@@ -234,7 +234,8 @@ namespace MUD
             addEdge(100, 101, "funny", "funny looking door");
             addEdge(101, 112, "book", "booklike door");
             addEdge(112, 113, "grimy", "grimy doorhandle");
-            getRoom(113).addEdge(getRoom(114), "D&", "door with D&D logo");
+            getRoom(113).addEdge(getRoom(114), "D&D", "door with D&D logo");
+            getRoom(114).customEnd = "NerdEnd";
             addEdge(113, 121, "nazi", "red door with swastika");
             addEdge(121, 122, "gun", "gunhandle on the door");
             addEdge(122, 130, "bars", "door with bars");

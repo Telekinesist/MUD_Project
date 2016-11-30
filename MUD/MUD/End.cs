@@ -66,7 +66,7 @@ namespace MUD
 
                         else if (input.Contains("reload"))
                         {
-                            C.t("Loafing last save game");
+                            C.t("Loading last save game");
                             Save.load();
                             break;
                         }
@@ -80,7 +80,41 @@ namespace MUD
                     }
 
                     break;
-                    
+
+                case "LockdownEnd":
+                    C.t("The door slams behind you, and the room goes dark.", 200);
+                    C.t("Uanble to re-open the door, you accept your fate... ", 600);
+                    C.t("An eternity in lockdown.",1000);
+                    C.t("THE END", 100);
+                    C.t("(more or less", 500);
+                    C.t("", 1200);
+                    C.t("Replay?");
+                    while (true)
+                    {
+                        input = Console.ReadLine().ToLower();
+                        if (input.Contains("replay"))
+                        {
+
+                        }
+
+                        else if (input.Contains("reload"))
+                        {
+                            C.t("Loading last save game");
+                            Save.load();
+                            break;
+                        }
+
+                        else if (input.Contains("exit"))
+                        {
+                            Environment.Exit(0);
+                        }
+
+
+                    }
+
+                    break; 
+
+
 
                 default:
 
