@@ -18,9 +18,9 @@ namespace MUD
 			Data.tookAction = true;
 
 
-			if (input.Length > 1)
+			if (input.Length > 0)
 			{
-				if (input.Substring(0, 2).Equals("tp"))
+				if (input.Length > 2 && input.Substring(0, 2).Equals("tp"))
 				{
 					Player.room = int.Parse(input.Substring(3));
 				}
@@ -28,23 +28,13 @@ namespace MUD
 				{
 					Player.getStats();
 				}
-				else if (input.Contains("open chest"))
-				{
-					if (haveChest)
-					{
-						Narrator.descripeChestContent(Data.room().RoomChest);
-						Player.HP += Data.room().RoomChest.Hp;
-						Data.room().RoomChest.unopened = false;
-					}
-					else
-					{
-						C.t("What chest?");
-					}
-
-				}
 				else if (Data.move.Any(input.Contains))
 				{
 					Player.move(input);
+				}
+				else if (Data.WASD.Any(input.Contains))
+				{
+					Player.WASD(input);
 				}
 				else if (input.Contains("save"))
 				{
@@ -64,10 +54,11 @@ namespace MUD
 				{
 					Narrator.lookAround();
 				}
-				
-				else
+				else if (haveChest && input.Contains("open chest"))
 				{
-					Data.tookAction = false;
+					Narrator.descripeChestContent(Data.room().RoomChest);
+					Player.HP += Data.room().RoomChest.Hp;
+					Data.room().RoomChest.unopened = false;
 				}
 			}
 			else
