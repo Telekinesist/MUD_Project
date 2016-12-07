@@ -10,16 +10,31 @@ namespace MUD
     {
         public static void CreatePlayer()
         {
-            Console.WriteLine("What is your name");
+            Console.WriteLine("what is your name?");
             string name = Console.ReadLine();
 
-            Console.WriteLine("What is your age");
-            float age = float.Parse(Console.ReadLine());
+            Console.WriteLine("what is your age?");
+            bool isReading = true;
+            float age = 19;
+            while (isReading)
+            {
+                try
+                {
+                    age = float.Parse(Console.ReadLine());
+                    isReading = false;
+                }
+                catch
+                {
+                    Console.WriteLine("Error, please type a number as your age, else you are a FUC**** bastard, and i will find you, and kill you !!! ");
+                }
+            }
 
-            Console.WriteLine("Are you male, female, or inbetween?");
+           
+
+            Console.WriteLine("choose your sex between a male or female");
             string sex = Console.ReadLine();
 
-            Console.WriteLine("Choose your race between, orc, elf , dwarf or human");
+            Console.WriteLine("choose your race between orc, elf , dwarf, Or human");
 
             string race = Console.ReadLine();
             int Hp = 100;
@@ -28,15 +43,15 @@ namespace MUD
             {
                 case "orc":
                    Hp = 85;
-                   att = 12;
+                   att = 10;
                     break;
                 case "elf":
                     Hp = 70;
-                    att = 15;
+                    att = 10;
                     break;
                 case "dwarf":
                     Hp = 125;
-                    att = 7;
+                    att = 10;
                     break;
                 case "human":
                     Hp = 100;
