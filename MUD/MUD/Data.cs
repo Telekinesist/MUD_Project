@@ -148,14 +148,6 @@ namespace MUD
 			monsters.Add(new Monster(1, "Rat", 10, 2));
 			monsters.Add(new Monster(2, "Bigger Rat", 15, 4));
 			monsters.Add(new Monster(8, "Spider", 64, 8));
-			monsters.Add(new Monster(13, "Bat", 5, 3));
-			monsters.Add(new Monster(75, "Ogre", 175, 13));
-			monsters.Add(new Monster(1, "cat ", 7, 5));
-
-
-			monsters.Add(new Monster(1, "Rat", 10, 2));
-			monsters.Add(new Monster(2, "Bigger Rat", 15, 4));
-			monsters.Add(new Monster(8, "Spider", 64, 8));
 			monsters.Add(new Monster(100, "Dragon", 200, 15));
 			monsters.Add(new Monster(75, "Ogre", 175, 13));
 			monsters.Add(new Monster(1, "Grumpy monster", 10, 1, true));
