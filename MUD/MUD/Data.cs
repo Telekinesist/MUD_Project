@@ -50,9 +50,16 @@ namespace MUD
 		public static List<string> think = new List<string>();
 		public static List<string> load = new List<string>();
 		public static List<string> newGame = new List<string>();
+		public static List<string> WASD = new List<string>();
 
 		public static void addCommands()
 		{
+			WASD.Add("w");
+			WASD.Add("a");
+			WASD.Add("s");
+			WASD.Add("d");
+
+
 			showInv.Add("inv");
 			showInv.Add("inventory");
 			showInv.Add("stat");
