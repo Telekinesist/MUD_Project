@@ -165,7 +165,6 @@ namespace MUD
             BM.addTrack("door", @"\Door.mp3");
 			BM.addTrack("mon", @"\Monsters.mp3");
 			BM.addTrack("spid", @"\theme.mp3");
-			BM.addTrack("instructions", @"\comm_shipnode.mp3");
 
 			BM.addSound("go", @"\OpenClose.wav");
 			BM.addSound("heal", @"\Heal.wav");
