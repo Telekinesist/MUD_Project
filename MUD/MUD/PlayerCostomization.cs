@@ -43,15 +43,15 @@ namespace MUD
             {
                 case "orc":
                    Hp = 85;
-                   att = 10;
+                   att = 12;
                     break;
                 case "elf":
                     Hp = 70;
-                    att = 10;
+                    att = 15;
                     break;
                 case "dwarf":
                     Hp = 125;
-                    att = 10;
+                    att = 7;
                     break;
                 case "human":
                     Hp = 100;

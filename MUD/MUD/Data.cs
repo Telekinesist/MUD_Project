@@ -10,6 +10,7 @@ namespace MUD
 	 */
 	static class Data
 	{
+		public static bool tookAction = true;
 		public static bool makeNoise = false;
 		public static Map world = new Map();
 		public static Room getRoom(int id)
@@ -99,24 +100,6 @@ namespace MUD
 
 			newGame.Add("new game");
 			newGame.Add("new");
-
-
-			Interface.directions.Add("north");
-			Interface.directions.Add("ssouth");
-			Interface.directions.Add("east");
-			Interface.directions.Add("west");
-			Interface.directions.Add("up");
-			Interface.directions.Add("down");
-			Interface.directions.Add("right");
-			Interface.directions.Add("left");
-			Interface.directions.Add("n");
-			Interface.directions.Add("s");
-			Interface.directions.Add("e");
-			Interface.directions.Add("w");
-			Interface.directions.Add("u");
-			Interface.directions.Add("d");
-			Interface.directions.Add("r");
-			Interface.directions.Add("l");
 		}
 
         public static void addData() // Alle chest der findes i spillet. 

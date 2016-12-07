@@ -97,7 +97,7 @@ namespace MUD
                 int i = Epic.Next(0, EpicWeapons.Count);
                 return EpicWeapons[i];
             }
-            else if (r > EpicChance && r <= LegendaryChance)
+            else if (r > EpicChance)
             {
                 Random Legendary = new Random();
                 int i = Legendary.Next(0, LegendaryWeapons.Count);
@@ -106,6 +106,7 @@ namespace MUD
             else
             {
                 C.d("Der er gået noget galt, du har ikke fået noget våben");
+				C.d(JunkChance.ToString() + CommonChance.ToString() + RareChance.ToString() + EpicChance.ToString() + LegendaryChance.ToString());
                 return null;
             }
          
