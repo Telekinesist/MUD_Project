@@ -193,6 +193,7 @@ namespace MUD
 			//Monsters and chests not included untill Cim "fix" the lists
 			//Each path is split into hundrets. Each subpath is split into tenths. That way it is easy to keep track of the branching rooms.
 			addRoom(0, null, monsters[5], "You wake up");
+			getRoom(0).customOption = "sleepy_monster_rust_door";
 			addRoom(100, null, null, "A forest. Wait, aren't I in a dungeon??");
             addRoom(101, null, monsters[1], "A new monster? Seriously?");
             addRoom(112, chests[1], null, "You look around, stunned. So many books!!!");
