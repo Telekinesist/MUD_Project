@@ -86,7 +86,7 @@ namespace MUD
                     C.t("Uanble to re-open the door, you accept your fate... ", 600);
                     C.t("An eternity in lockdown.",1000);
                     C.t("THE END", 100);
-                    C.t("(more or less", 500);
+                    C.t("(more or less)", 500);
                     C.t("", 1200);
                     C.t("Replay?");
                     while (true)
